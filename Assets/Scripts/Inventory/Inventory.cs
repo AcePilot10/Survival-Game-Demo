@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour {
     {
         controller = GetComponent<FirstPersonController>();
         Cursor.visible = false;
-        mouseLook = PlayerManager.instance.GetPlayer().GetComponent<FirstPersonController>().m_MouseLook;
+        //mouseLook = PlayerManager.instance.GetPlayer().GetComponent<FirstPersonController>().m_MouseLook;
     }
 
     public void ToggleInventory() {

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23990115706016106}
   - component: {fileID: 136436371488970248}
   - component: {fileID: 114710953982259886}
+  - component: {fileID: 114820247345643870}
   m_Layer: 0
   m_Name: Test Tree
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128670045733568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -85.71851, y: 0.18409066, z: 4.8318458}
+  m_LocalPosition: {x: -46.77965, y: 0.14991228, z: 20.445793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,7 +70,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -99,9 +100,28 @@ MonoBehaviour:
   entityName: Tree
   hitpoints: 20
   destroyForce: 5
-  destroyDelay: 4
-  droppings: []
+  destroyDelay: 2
+  droppings:
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
   spreadRadius: 2
+--- !u!114 &114820247345643870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128670045733568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052a6006c1422c840866003813c6b7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleObject: {fileID: 1747433814490934, guid: a1759e1c2efd4a2458f29ced07c30b20,
+    type: 2}
 --- !u!136 &136436371488970248
 CapsuleCollider:
   m_ObjectHideFlags: 1

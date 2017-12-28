@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3350282}
   - component: {fileID: 2323548}
   - component: {fileID: 13699876}
+  - component: {fileID: 114080035032169318}
+  - component: {fileID: 114004688278114928}
   m_Layer: 0
   m_Name: tree03
   m_TagString: Untagged
@@ -4644,3 +4646,37 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191138}
   m_IsPrefabParent: 1
+--- !u!114 &114004688278114928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052a6006c1422c840866003813c6b7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleObject: {fileID: 1747433814490934, guid: a1759e1c2efd4a2458f29ced07c30b20,
+    type: 2}
+--- !u!114 &114080035032169318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3536b7b38415c43b73a5181fe8269e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+  entityName: Tree
+  hitpoints: 20
+  destroyForce: 5
+  destroyDelay: 2
+  droppings:
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  - {fileID: 1132504756900210, guid: 97591649704d84f41a8d45afe9b9d9bc, type: 2}
+  spreadRadius: 2
