@@ -14,12 +14,15 @@ public class Inventory : MonoBehaviour {
     }
     #endregion
 
-    public Item[] items;
-    public InventoryUI ui;
+    #region Variables
+    public List<Item> items;
+    public GameObject uiObject;
 
     private FirstPersonController controller;
     private bool opened = false;
     private MouseLook mouseLook;
+
+    #endregion
 
     private void Start()
     {
@@ -43,23 +46,33 @@ public class Inventory : MonoBehaviour {
     }
 
     void OpenInventory() {
-        ui.gameObject.SetActive(true);
+        uiObject.gameObject.SetActive(true);
         mouseLook.m_cursorIsLocked = false;
         controller.canMove = false;
     }
 
     void CloseInventory() {
-        ui.gameObject.SetActive(false);
+        uiObject.gameObject.SetActive(false);
         mouseLook.m_cursorIsLocked = true;
         controller.canMove = true;
     }
 
+    #region functionality
     public bool IsFull() {
-        return items.Length == (ui.slotHolder.transform.childCount);
+        return !items.Contains(null);
     }
 
-    private void AddToItems(Item item) {
-        for (int index = 0; index < items.Length; index++) {
+    public bool ContainsItem(Item item) {
+        foreach(Item current in items) {
+            if (current.id == item.id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void AddItemToInventory(Item item) {
+        for (int index = 0; index < items.Count; index++) {
             Item currentItem = items[index];
             if (currentItem == null) {
                 items[index] = item;
@@ -69,7 +82,7 @@ public class Inventory : MonoBehaviour {
     }
 
     private void RemoveItemFromItems(Item item) {
-        for (int index = 0; index < items.Length; index++)
+        for (int index = 0; index < items.Count; index++)
         {
             Item currentItem = items[index];
             if (currentItem != null)
@@ -83,14 +96,17 @@ public class Inventory : MonoBehaviour {
             }
         }
     }
+    #endregion
 
     public void AddItem(Item item) {
-        AddToItems(item);
         Debug.Log("Succesfully added: " + item.itemName + " to inventory!");
+        AddItemToInventory(item);
+        FindObjectOfType<InventoryUI>().UpdateSlots();
     }
 
     public void RemoveItem(Item item) {
         Debug.Log("Attempting to remove: " + item.itemName);
         RemoveItemFromItems(item);
+        InventoryUI.instance.UpdateSlots();
     }
 }

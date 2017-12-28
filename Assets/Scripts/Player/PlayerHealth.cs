@@ -5,24 +5,43 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     public float health;
+    public float hunger;
     public float stamina;
 
     public float staminaRegenSpeed;
     public float staminaZeroDelay;
 
+    public float foodDrainSpeed;
+
     private bool isFatigued = false;
-
-    public void TakeDamage(float amount) {
-        health -= amount;
-    }
-
-    public void ReduceStamina(float amount) {
-        stamina -= amount;
-    }
 
     private void Update()
     {
-        CheckStamina();    
+        CheckStamina();
+        ReduceHunger();
+    }
+
+    #region hunger
+    public void ReduceHunger() {
+        if(hunger > 0)
+        {
+            hunger -= foodDrainSpeed;
+        }
+    }
+    #endregion
+
+    #region health
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+    }
+    #endregion 
+
+    #region Stamina
+
+    public void ReduceStamina(float amount)
+    {
+        stamina -= amount;
     }
 
     void CheckStamina() {
@@ -48,4 +67,5 @@ public class PlayerHealth : MonoBehaviour {
         yield return new WaitForSeconds(staminaZeroDelay);
         isFatigued = false;
     }
+    #endregion
 }

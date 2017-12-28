@@ -7,6 +7,6 @@ public class Interactable : MonoBehaviour {
     public string interactableName;
 
     public virtual void Interact() {
-
+        Debug.Log("Interacted with: " + interactableName);
     }
 }

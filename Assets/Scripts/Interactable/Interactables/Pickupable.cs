@@ -25,6 +25,8 @@ public class Pickupable : Interactable {
         base.Interact();
     }
 
+#region Logic
+
     void HandlePickup() {
         if (!isHeld)
         {
@@ -58,4 +60,5 @@ public class Pickupable : Interactable {
     private void UpdatePosition() {
         transform.rotation = originalRotation;
     }
+    #endregion
 }

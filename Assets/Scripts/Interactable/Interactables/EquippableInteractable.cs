@@ -6,6 +6,7 @@ public class EquippableInteractable : InventoryItem {
 
     public override void Interact()
     {
+        base.Interact();
         PlayerEquipment.instance.Equip(item as Equipment);
         Destroy(gameObject);
     }

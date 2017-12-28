@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Image))]
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour
 {
 
+    #region variables
     private Item item;
+    public int amount = 0;
 
     public Image iconHolder;
     public Text title;
+    public Text stackAmount;
 
     private bool displayOptions = false;
+    #endregion
 
     private void Update()
     {
@@ -21,11 +24,13 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             iconHolder.sprite = item.icon;
             title.text = item.itemName;
+            stackAmount.text = amount.ToString();
         }
         else
         {
             iconHolder.sprite = null;
             title.text = "";
+            stackAmount.text = "";
         }
     }
 
@@ -36,41 +41,38 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public virtual void ToggleOptions() {
-        displayOptions = !displayOptions;
-    }
-
     public Item GetItem() {
         return item;
     }
 
     public void SetItem(Item item) {
         this.item = item;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    //Used for detected right clicks
-    {
-        if (eventData.button == PointerEventData.InputButton.Right) {
-            ToggleOptions();
+        if(item != null) {
+            amount = 1;
         }
     }
 
-    void OnGUI() {
-        if (displayOptions) {
-            Rect pos = new Rect(Screen.width/2, Screen.height/2, Screen.width/2, Screen.height/2);
-            GUIContent content = new GUIContent();
-            content.image = null;
-            content.text = "Test Frame";
-            GUI.BeginGroup(pos, "Options");
-            GUI.Label(new Rect(0, 15, 100, 100), "Test Label");
-            if (GUI.Button(new Rect(0, 25, 100, 100), "Drop")) {
-                if (item != null) {
-                    ToggleOptions();
-                    item.Drop();
-                }
-            }
-            GUI.EndGroup();
+    public void AddStack() {
+        amount++;
+    }
+
+    public bool HasItem() {
+        return item != null;
+    }
+
+    public void DropItem() {
+        if (amount > 1)
+        {
+            item.InstantiateDrop();
+            Inventory.instance.RemoveItem(item);
+            amount--;
+            InventoryUI.instance.UpdateSlots();
+        }
+        else
+        {
+            item.Drop();
+            SetItem(null);
+            InventoryUI.instance.UpdateSlots();
         }
     }
 }

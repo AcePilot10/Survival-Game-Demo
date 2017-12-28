@@ -4,38 +4,69 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour {
 
-    public GameObject slotHolder;
-
-    private Inventory inventory;
+    #region singleton
+    public static InventoryUI instance;
 
     private void Awake()
     {
-        inventory = Inventory.instance;
+        instance = this;
+    }
+    #endregion
+
+    public GameObject slotHolder;
+
+    private void ClearSlots() {
+        foreach (Transform child in slotHolder.transform)
+        {
+            InventorySlot slot = child.GetComponent<InventorySlot>();
+            slot.SetItem(null);
+        }
     }
 
-    void UpdateSlots()
-    {
-        try
+    public void UpdateSlots() {
+        ClearSlots();
+        for (int index = 0; index < slotHolder.transform.childCount; index++)
         {
-            for (int index = 0; index < slotHolder.transform.childCount; index++)
+            int empties = 0;
+            Item item = Inventory.instance.items[index];
+            InventorySlot slot = slotHolder.transform.GetChild(index - (empties)).GetComponent<InventorySlot>();
+            Debug.Log(empties.ToString());
+            //If item exists
+            if (item != null)
             {
-                Item item = inventory.items[index];
-                InventorySlot slot = slotHolder.transform.GetChild(index).GetComponent<InventorySlot>();
-                if (item != null)
+                //if item is stackable
+                if (item.GetType().IsSubclassOf(typeof(IStackable)))
                 {
+                    //Loop through all slots
+                    bool hasItem = false;
+                    foreach (Transform child in slotHolder.transform)
+                    {
+                        InventorySlot childSlot = child.GetComponent<InventorySlot>();
+                        //Check if slot has item
+                        if (childSlot.HasItem())
+                        {
+                            Item childSlotItem = childSlot.GetItem();
+                            //Check if child slot item is the same as the current item
+                            if (childSlotItem.GetInstanceID() == item.GetInstanceID())
+                            {
+                                hasItem = true;
+                                childSlot.AddStack();
+                            }
+                        }
+                    }
+                    if (!hasItem)
+                    {
+                        slot.SetItem(item);
+                    }
+                }
+                else {
                     slot.SetItem(item);
                 }
-                else
-                {
-                    slot.SetItem(null);
-                }
+            }
+            else
+            {
+                empties++;
             }
         }
-        catch (System.IndexOutOfRangeException ex) { }
-    }
-
-    private void Update()
-    {
-        UpdateSlots();
     }
 }

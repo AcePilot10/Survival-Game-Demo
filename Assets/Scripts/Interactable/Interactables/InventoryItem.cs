@@ -8,7 +8,14 @@ public class InventoryItem : Interactable {
 
     public override void Interact()
     {
-        item.Pickup();
-        Destroy(gameObject);
+        if (!Inventory.instance.IsFull())
+        {
+            base.Interact();
+            item.Pickup();
+            Destroy(gameObject);
+        }
+        else {
+            Debug.Log("Inventory Is Full!");
+        }
     }
 }

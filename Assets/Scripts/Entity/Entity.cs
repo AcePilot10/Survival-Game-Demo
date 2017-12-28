@@ -7,12 +7,13 @@ public class Entity : MonoBehaviour {
     public int id;
     public string entityName;
 
-    public virtual void Interact() {
-
+    private void Awake()
+    {
+        Initiate();
     }
 
-    public virtual void Attack(float amount) {
-        //Debug.Log(name + " has been atacked for " + amount + " hit points!");
+    public virtual void Attack(float amount) { 
+        Debug.Log("Attacked: " + entityName);
     }
 
     public virtual void Initiate() {

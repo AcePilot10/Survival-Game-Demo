@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealthUI : MonoBehaviour {
 
     public Slider healthSlider;
+    public Slider hungerSlider;
     public Slider staminaSlider;
 
     private PlayerHealth health;
@@ -18,6 +19,7 @@ public class PlayerHealthUI : MonoBehaviour {
     private void Update()
     {
         healthSlider.value = health.health;
+        hungerSlider.value = health.hunger;
         staminaSlider.value = health.stamina;
     }
 }

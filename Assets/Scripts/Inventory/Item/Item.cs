@@ -23,7 +23,7 @@ public class Item : MonoBehaviour {
     public virtual void Drop()
     {
         GameObject obj = Instantiate(interactable) as GameObject;
-        Vector3 pos = transform.position + (transform.forward * 3);
+        Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (transform.forward * 3);
         pos.y = transform.position.y - 3;
         obj.transform.position = pos;
         Inventory.instance.RemoveItem(this);
@@ -32,5 +32,12 @@ public class Item : MonoBehaviour {
     public virtual void Use()
     {
         Debug.Log("Used: " + itemName);
+    }
+    
+    public virtual void InstantiateDrop() {
+        GameObject obj = Instantiate(interactable) as GameObject;
+        Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (transform.forward * 3);
+        pos.y = transform.position.y - 3;
+        obj.transform.position = pos;
     }
 }
