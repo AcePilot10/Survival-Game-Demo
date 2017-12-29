@@ -14,8 +14,6 @@ public class InventorySlot : MonoBehaviour
     public Image iconHolder;
     public Text title;
     public Text stackAmount;
-
-    private bool displayOptions = false;
     #endregion
 
     private void Update()
@@ -66,13 +64,12 @@ public class InventorySlot : MonoBehaviour
             item.InstantiateDrop();
             Inventory.instance.RemoveItem(item);
             amount--;
-            InventoryUI.instance.UpdateSlots();
         }
         else
         {
             item.Drop();
             SetItem(null);
-            InventoryUI.instance.UpdateSlots();
         }
+        InventoryUI.instance.UpdateSlots();
     }
 }

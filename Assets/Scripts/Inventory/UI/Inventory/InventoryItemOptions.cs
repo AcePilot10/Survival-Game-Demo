@@ -17,19 +17,16 @@ public class InventoryItemOptions : MonoBehaviour, IPointerClickHandler {
         }
     }
 
-   void ToggleOptions() {
-        displayOptions = !displayOptions;
-    }
-
-    void Update()
+    void ToggleOptions()
     {
         if (slot.HasItem())
         {
-            optionsPanel.SetActive(displayOptions);
+            optionsPanel.SetActive(!optionsPanel.activeSelf);
         }
     }
 
     public void DropItem() {
+        optionsPanel.SetActive(false);
         slot.DropItem();
     }
 }

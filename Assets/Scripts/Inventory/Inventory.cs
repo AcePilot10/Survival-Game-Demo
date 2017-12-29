@@ -5,7 +5,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Inventory : MonoBehaviour {
 
-#region singleton
+    #region singleton
     public static Inventory instance;
 
     private void Awake()
@@ -28,9 +28,72 @@ public class Inventory : MonoBehaviour {
     {
         controller = GetComponent<FirstPersonController>();
         Cursor.visible = false;
-        //mouseLook = PlayerManager.instance.GetPlayer().GetComponent<FirstPersonController>().m_MouseLook;
+        mouseLook = GameObject.FindObjectOfType<FirstPersonController>().m_MouseLook;
     }
 
+    #region functionality
+    public bool IsFull()
+    {
+        return !items.Contains(null);
+    }
+
+    public bool ContainsItem(Item item)
+    {
+        foreach (Item current in items)
+        {
+            if (current.id == item.id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void AddItemToInventory(Item item)
+    {
+        for (int index = 0; index < items.Count; index++)
+        {
+            Item currentItem = items[index];
+            if (currentItem == null)
+            {
+                items[index] = item;
+                break;
+            }
+        }
+    }
+
+    private void RemoveItemFromItems(Item item)
+    {
+        for (int index = 0; index < items.Count; index++)
+        {
+            Item currentItem = items[index];
+            if (currentItem != null)
+            {
+                if (currentItem.GetInstanceID() == item.GetInstanceID())
+                {
+                    Debug.Log("Removed Item!");
+                    items[index] = null;
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+    public void OrganizeInventory()
+    {
+        foreach(Item item in items)
+        {
+            if (item == null)
+            {
+                //items.Remove(item);
+                items.TrimExcess();
+            }
+        }
+    }*/
+    #endregion
+
+    #region Main Functions
     public void ToggleInventory() {
         opened = !opened;
         switch (opened) 
@@ -57,47 +120,6 @@ public class Inventory : MonoBehaviour {
         controller.canMove = true;
     }
 
-    #region functionality
-    public bool IsFull() {
-        return !items.Contains(null);
-    }
-
-    public bool ContainsItem(Item item) {
-        foreach(Item current in items) {
-            if (current.id == item.id) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private void AddItemToInventory(Item item) {
-        for (int index = 0; index < items.Count; index++) {
-            Item currentItem = items[index];
-            if (currentItem == null) {
-                items[index] = item;
-                break;
-            }
-        }
-    }
-
-    private void RemoveItemFromItems(Item item) {
-        for (int index = 0; index < items.Count; index++)
-        {
-            Item currentItem = items[index];
-            if (currentItem != null)
-            {
-                if (currentItem.GetInstanceID() == item.GetInstanceID())
-                {
-                    Debug.Log("Removed Item!");
-                    items[index] = null;
-                    break;
-                }
-            }
-        }
-    }
-    #endregion
-
     public void AddItem(Item item) {
         Debug.Log("Succesfully added: " + item.itemName + " to inventory!");
         AddItemToInventory(item);
@@ -109,4 +131,5 @@ public class Inventory : MonoBehaviour {
         RemoveItemFromItems(item);
         InventoryUI.instance.UpdateSlots();
     }
+    #endregion
 }

@@ -6,19 +6,16 @@ public class Weapon : Equipment {
 
     public GameObject modelPrefab;
     public float strength;
+    public float knockStrength;
 
     private GameObject currentModel;
 
     void InitModel()
     {
-        Transform primaryHolder = GameObject.FindGameObjectWithTag("Primary Holder").transform;
-        Transform primaryPosition = GameObject.FindGameObjectWithTag("Primary Position").transform;
-        currentModel = Instantiate(modelPrefab) as GameObject;
-        currentModel.transform.position = primaryPosition.position;
-        currentModel.transform.parent = primaryHolder;
-        currentModel.transform.rotation = primaryPosition.rotation;
+        Transform primaryHolder = FindObjectOfType<PlayerEquipment>().primaryHolder.transform;
+        Transform primaryPosition = FindObjectOfType<PlayerEquipment>().primaryPosition.transform;
+        currentModel = Instantiate(modelPrefab, primaryPosition.position, primaryPosition.rotation, primaryHolder) as GameObject;
         currentModel.transform.localScale = primaryPosition.localScale;
-        currentModel.transform.parent = primaryHolder;
         PlayerManager.instance.GetPlayer().GetComponent<PlayerAnimator>().hasWeapon = true;
     }
 

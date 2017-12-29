@@ -54,11 +54,27 @@ public class PlayerInput : MonoBehaviour {
             {
                 entity.Attack(PlayerManager.stats.entityAttackStrength);
             }
-            if (obj.GetComponent<HitParticleEmitter>() != null) {
-                if (obj.GetComponent<HitParticleEmitter>().particleObject != null)
-                {
-                    obj.GetComponent<HitParticleEmitter>().Play(hit.point);
-                }
+            HitEffect(obj, hit);
+        }
+    }
+
+
+    void HitEffect(GameObject obj, RaycastHit hit)
+    {
+        //Hit particles
+        if (obj.GetComponent<HitParticleEmitter>() != null)
+        {
+            if (obj.GetComponent<HitParticleEmitter>().particleObject != null)
+            {
+                obj.GetComponent<HitParticleEmitter>().Play(hit.point);
+            }
+        }
+        //Add Force
+        if (obj.GetComponent<Rigidbody>() != null) {
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (PlayerEquipment.instance.HasPrimary()) {
+                Primary primary = PlayerEquipment.instance.primary;
+                rb.AddForce(transform.forward * primary.knockStrength, ForceMode.Impulse);
             }
         }
     }

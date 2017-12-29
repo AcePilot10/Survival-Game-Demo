@@ -59,3 +59,4 @@ MonoBehaviour:
   modelPrefab: {fileID: 1275840703560538, guid: 5622c354b6f24684185f805dd8a3b3ab,
     type: 2}
   strength: 50
+  knockStrength: 5

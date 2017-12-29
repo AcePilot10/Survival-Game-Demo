@@ -63,6 +63,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Update()
         {
+            //Player Animator is set to running or walking
+            if (m_IsWalking)
+            {
+                FindObjectOfType<PlayerAnimator>().SetWalking();
+            }
+            else {
+                FindObjectOfType<PlayerAnimator>().SetRunning();
+            }
             RotateView();
             if (!m_Jump)
             {

@@ -7,6 +7,8 @@ public class PlayerAnimator : MonoBehaviour {
     public Animator anim;
     public float walkThreshold;
     public bool hasWeapon = false;
+    public float walkAnimationMultiplier;
+    public float runAnimationMultiplier;
 
     private CharacterController controller;
 
@@ -17,15 +19,30 @@ public class PlayerAnimator : MonoBehaviour {
 
     private void Update()
     {
-        UpdateAttacking();   
+        UpdateAttacking();
+        UpdateMovement();
     }
+
+    #region movement
+    void UpdateMovement() {
+        anim.SetBool("Walking", (controller.velocity.magnitude >= walkThreshold));
+    }
+
+    public void SetWalking() {
+        anim.SetFloat("WalkMultiplier", walkAnimationMultiplier);
+    }
+
+    public void SetRunning() {
+        anim.SetFloat("WalkMultiplier", runAnimationMultiplier);
+    }
+
+    #endregion
 
     #region attacking
 
     void UpdateAttacking()
     {
         anim.SetBool("HasWeapon", hasWeapon);
-        anim.SetBool("Walking", (controller.velocity.magnitude >= walkThreshold));
     }
 
     public void PunchRandom() {

@@ -25,12 +25,12 @@ public class InventoryUI : MonoBehaviour {
 
     public void UpdateSlots() {
         ClearSlots();
+        int stacks = 0;
+        //Inventory.instance.items.TrimExcess();
         for (int index = 0; index < slotHolder.transform.childCount; index++)
         {
-            int empties = 0;
             Item item = Inventory.instance.items[index];
-            InventorySlot slot = slotHolder.transform.GetChild(index - (empties)).GetComponent<InventorySlot>();
-            Debug.Log(empties.ToString());
+            InventorySlot slot = slotHolder.transform.GetChild(index - stacks).GetComponent<InventorySlot>();
             //If item exists
             if (item != null)
             {
@@ -51,6 +51,7 @@ public class InventoryUI : MonoBehaviour {
                             {
                                 hasItem = true;
                                 childSlot.AddStack();
+                                stacks++;
                             }
                         }
                     }
@@ -62,10 +63,6 @@ public class InventoryUI : MonoBehaviour {
                 else {
                     slot.SetItem(item);
                 }
-            }
-            else
-            {
-                empties++;
             }
         }
     }

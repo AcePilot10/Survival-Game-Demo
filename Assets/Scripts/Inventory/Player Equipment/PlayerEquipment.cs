@@ -17,6 +17,8 @@ public class PlayerEquipment : MonoBehaviour {
 
     #region Primary
     public Primary primary;
+    public GameObject primaryHolder;
+    public GameObject primaryPosition;
    
 
     public bool HasPrimary() {
