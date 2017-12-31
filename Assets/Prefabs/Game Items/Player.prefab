@@ -963,6 +963,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1751380459197462
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4090724128961482}
+  m_Layer: 0
+  m_Name: Flashlight Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1758701630788894
 GameObject:
   m_ObjectHideFlags: 1
@@ -1125,6 +1140,21 @@ GameObject:
   - component: {fileID: 4742548261505704}
   m_Layer: 0
   m_Name: CIndex_L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1863346931331442
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4686584819441032}
+  m_Layer: 0
+  m_Name: Flashlight Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1401,8 +1431,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510003243178028}
-  m_LocalRotation: {x: -0, y: -0.6036073, z: -0, w: 0.7972818}
-  m_LocalPosition: {x: -101.09119, y: 25.552399, z: 10.345448}
+  m_LocalRotation: {x: 0, y: 0.53021526, z: 0, w: 0.84786314}
+  m_LocalPosition: {x: -88.91, y: 2.53, z: 8.215256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4323640184057162}
@@ -1464,6 +1494,19 @@ Transform:
   m_Father: {fileID: 4180056491800774}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4090724128961482
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751380459197462}
+  m_LocalRotation: {x: -0.3064578, y: 0.6608527, z: 0.6410395, w: 0.24171427}
+  m_LocalPosition: {x: -88.48002, y: 3.4190092, z: 8.80403}
+  m_LocalScale: {x: 0.20915166, y: 0.20915186, z: 0.20915179}
+  m_Children: []
+  m_Father: {fileID: 4686584819441032}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -84.512, y: -129.849, z: 264.182}
 --- !u!4 &4094122592701750
 Transform:
   m_ObjectHideFlags: 1
@@ -1601,6 +1644,7 @@ Transform:
   - {fileID: 4479524933559808}
   - {fileID: 4481273666575752}
   - {fileID: 4095281433854258}
+  - {fileID: 4686584819441032}
   m_Father: {fileID: 4123699937584760}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2154,6 +2198,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4393405461902698}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4686584819441032
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863346931331442}
+  m_LocalRotation: {x: 0.24766277, y: -0.9471144, z: 0.0742714, w: 0.19005607}
+  m_LocalPosition: {x: -2.6715534, y: -1.590678, z: 1.7331977}
+  m_LocalScale: {x: 0.039949507, y: 0.03994949, z: 0.039949514}
+  m_Children:
+  - {fileID: 4090724128961482}
+  m_Father: {fileID: 4176466243332176}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4693364678687272
 Transform:
@@ -3098,13 +3156,17 @@ MonoBehaviour:
   interactableReach: 10
   entityReach: 7
   fistStrength: 5
+  fistKnockback: 5
+  walkingStaminaDrain: 0.05
+  runningStaminaDrain: 0.75
+  idleStaminaGain: 0.35
 --- !u!114 &114266684184510376
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1171590103329726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fd999d1b2cf94a45a5b0a47ce074bef, type: 3}
   m_Name: 
@@ -3119,12 +3181,6 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.74817526
-      value: 1.1401587
-      inSlope: 0.81926584
-      outSlope: 0.81926584
-      tangentMode: 0
-    - serializedVersion: 2
       time: 1
       value: 1
       inSlope: 0
@@ -3132,7 +3188,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   greenChannel:
     serializedVersion: 2
     m_Curve:
@@ -3143,12 +3199,6 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.87933934
-      value: 1.0646861
-      inSlope: 1.3846159
-      outSlope: 1.3846159
-      tangentMode: 0
-    - serializedVersion: 2
       time: 1
       value: 1
       inSlope: 0
@@ -3156,7 +3206,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   blueChannel:
     serializedVersion: 2
     m_Curve:
@@ -3167,12 +3217,6 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.83378065
-      value: 0.90632445
-      inSlope: 0.89913607
-      outSlope: 0.89913607
-      tangentMode: 0
-    - serializedVersion: 2
       time: 1
       value: 1
       inSlope: 0
@@ -3180,7 +3224,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   useDepthCorrection: 0
   zCurve:
     serializedVersion: 2
@@ -3260,12 +3304,9 @@ MonoBehaviour:
   selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
   mode: 0
   updateTextures: 1
-  colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
-    type: 3}
-  simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
-    type: 3}
-  colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
-    type: 3}
+  colorCorrectionCurvesShader: {fileID: 0}
+  simpleColorCorrectionCurvesShader: {fileID: 0}
+  colorCorrectionSelectiveShader: {fileID: 0}
 --- !u!114 &114327453713256270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3330,6 +3371,8 @@ MonoBehaviour:
   primary: {fileID: 0}
   primaryHolder: {fileID: 1294007485637880}
   primaryPosition: {fileID: 1595160234068918}
+  flashlightHolder: {fileID: 1863346931331442}
+  flashlightPosition: {fileID: 1751380459197462}
 --- !u!114 &114689996916987074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3344,9 +3387,9 @@ MonoBehaviour:
   health: 100
   hunger: 100
   stamina: 100
-  staminaRegenSpeed: 1
-  staminaZeroDelay: 0.1
+  staminaZeroDelay: 5
   foodDrainSpeed: 0.01
+  fatiguedSpeedMultiplier: 0.25
 --- !u!114 &114732475857311022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3507,6 +3550,7 @@ MonoBehaviour:
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
   canMove: 1
+  speedMultiplier: 1
 --- !u!114 &114960671969424814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3555,7 +3599,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2.29
   m_Direction: 1
-  m_Center: {x: 0, y: 0.79, z: 0}
+  m_Center: {x: 0, y: 0.31, z: 0}
 --- !u!137 &137517730320931818
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

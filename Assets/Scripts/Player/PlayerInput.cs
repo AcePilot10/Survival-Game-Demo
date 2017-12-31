@@ -72,10 +72,17 @@ public class PlayerInput : MonoBehaviour {
         //Add Force
         if (obj.GetComponent<Rigidbody>() != null) {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
-            if (PlayerEquipment.instance.HasPrimary()) {
+            float force = 0f;
+            if (PlayerEquipment.instance.HasPrimary())
+            {
                 Primary primary = PlayerEquipment.instance.primary;
-                rb.AddForce(transform.forward * primary.knockStrength, ForceMode.Impulse);
+                force = primary.knockStrength;
             }
+            else
+            {
+                force = PlayerManager.instance.GetPlayer().GetComponent<PlayerStats>().fistKnockback;
+            }
+            rb.AddForce(transform.forward * force, ForceMode.Impulse);
         }
     }
 

@@ -10,6 +10,8 @@ public class TigerProto : BasicAI
     private float velMag;
     #endregion
 
+    public float damage;
+
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -54,6 +56,17 @@ public class TigerProto : BasicAI
 
     public void AnimatorDoDamage()
     {
-        Debug.Log("AI DID DAMAGE!");
+        RaycastHit hit;
+        Ray ray = new Ray(eyePos.position, eyePos.forward);
+        Physics.Raycast(ray, out hit, eyesightRange);
+        if (hit.collider != null)
+        {
+            GameObject obj = hit.collider.gameObject;
+            if (obj.tag == "Player")
+            {
+                obj.GetComponent<PlayerHealth>().TakeDamage(damage);
+                Debug.Log("AI DID DAMAGE!");
+            }
+        }
     }
 }

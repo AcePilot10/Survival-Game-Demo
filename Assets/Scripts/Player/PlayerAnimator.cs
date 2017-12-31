@@ -35,8 +35,8 @@ public class PlayerAnimator : MonoBehaviour {
     public void SetRunning() {
         anim.SetFloat("WalkMultiplier", runAnimationMultiplier);
     }
-
     #endregion
+
 
     #region attacking
 

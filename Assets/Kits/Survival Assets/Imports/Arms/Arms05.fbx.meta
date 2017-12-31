@@ -261,14 +261,14 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Idle
-      firstFrame: -1
+      firstFrame: 0
       lastFrame: 309
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
+      hasAdditiveReferencePose: 1
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 0
@@ -285,11 +285,11 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 35
     - serializedVersion: 16
       name: IdleWithWeapon
       takeName: IdleWithWeapon
-      firstFrame: -1
+      firstFrame: 0
       lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
@@ -298,7 +298,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

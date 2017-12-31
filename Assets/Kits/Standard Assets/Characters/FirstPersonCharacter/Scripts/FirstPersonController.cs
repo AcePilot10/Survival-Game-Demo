@@ -31,6 +31,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_LandSound;
 
         public bool canMove = true;
+        public float speedMultiplier = 1f;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -105,8 +106,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (canMove)
             {
-                m_MoveDir.x = desiredMove.x * speed;
-                m_MoveDir.z = desiredMove.z * speed;
+                m_MoveDir.x = desiredMove.x * (speed * speedMultiplier);
+                m_MoveDir.z = desiredMove.z * (speed * speedMultiplier);
             }
             else {
                 m_MoveDir = Vector3.zero;

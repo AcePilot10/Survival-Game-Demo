@@ -61,11 +61,19 @@ public class BasicAI : MonoBehaviour {
 
     #region AI
     public virtual void Patrol() {
-        agent.speed = walkSpeed;
-        Vector3 target = patrolPoints[patrolIndex].position;
-        agent.destination = target;
-        if (Vector3.Distance(transform.position, target) <= patrolPointStoppingRange) {
-            NextPatrolPoint();
+        if (patrolPoints.Length > 0)
+        {
+            agent.speed = walkSpeed;
+            Vector3 target = patrolPoints[patrolIndex].position;
+            agent.destination = target;
+            if (Vector3.Distance(transform.position, target) <= patrolPointStoppingRange)
+            {
+                NextPatrolPoint();
+            }
+        }
+        else
+        {
+            Idle();
         }
     }
 

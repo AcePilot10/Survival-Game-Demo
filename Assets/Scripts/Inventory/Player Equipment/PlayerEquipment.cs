@@ -19,8 +19,9 @@ public class PlayerEquipment : MonoBehaviour {
     public Primary primary;
     public GameObject primaryHolder;
     public GameObject primaryPosition;
+    public GameObject flashlightHolder;
+    public GameObject flashlightPosition;
    
-
     public bool HasPrimary() {
         return primary != null;
     }
