@@ -17,6 +17,7 @@ public class FlashlightModel : MonoBehaviour {
     }
 
     public void Toggle() {
-        lightObject.SetActive(!on);
+        on = !on;
+        lightObject.SetActive(on);
     }
 }

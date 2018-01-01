@@ -8,8 +8,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
 
     public EquipmentType type;
-
+    public Equipment item;
     private bool showingUI = false;
+    public GameObject optionsHolder;
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
@@ -22,23 +23,18 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         showingUI = !showingUI;
     }
 
-    void OnGUI() {
-        if (showingUI) {
-            Rect pos = new Rect(Screen.width / 2, Screen.height / 2, Screen.width / 2, Screen.height / 2);
-            GUIContent content = new GUIContent();
-            content.image = null;
-            content.text = "Test Frame";
-            GUI.BeginGroup(pos, "Options");
-            GUI.Label(new Rect(0, 15, 100, 100), "Test Label");
-            if (GUI.Button(new Rect(0, 25, 100, 100), "Drop"))
-            {
-                if (PlayerEquipment.instance.HasPrimary())
-                {
-                    ToggleUI();
-                    PlayerEquipment.instance.primary.Unequip();
-                }
-            }
-            GUI.EndGroup();
+    void Update()
+    {
+        if (showingUI)
+        {
+            optionsHolder.SetActive(true);
         }
+        else {
+            optionsHolder.SetActive(false);
+        }
+    }
+
+    public void Unequip() {
+        PlayerEquipment.instance.Unequip(item, true);
     }
 }

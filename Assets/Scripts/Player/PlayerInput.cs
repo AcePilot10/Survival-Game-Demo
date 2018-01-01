@@ -24,6 +24,10 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.I)) {
             GetComponent<Inventory>().ToggleInventory();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q)) {
+
+        }
     }
 
     void InitAttack() {
@@ -57,7 +61,6 @@ public class PlayerInput : MonoBehaviour {
             HitEffect(obj, hit);
         }
     }
-
 
     void HitEffect(GameObject obj, RaycastHit hit)
     {
