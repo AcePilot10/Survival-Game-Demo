@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
+public class EquipmentSlot : MonoBehaviour, IPointerDownHandler
 {
 
     public EquipmentType type;
@@ -12,29 +12,22 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     private bool showingUI = false;
     public GameObject optionsHolder;
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right) {
+        if (item != null)
+        {
             ToggleUI();
         }
     }
 
     public void ToggleUI() {
         showingUI = !showingUI;
+        optionsHolder.SetActive(showingUI);
     }
 
-    void Update()
-    {
-        if (showingUI)
-        {
-            optionsHolder.SetActive(true);
-        }
-        else {
-            optionsHolder.SetActive(false);
-        }
-    }
-
-    public void Unequip() {
-        PlayerEquipment.instance.Unequip(item, true);
+    public void Drop() {
+        Debug.Log("Drop Clicked");
+        item.Drop();
+        showingUI = false;
     }
 }

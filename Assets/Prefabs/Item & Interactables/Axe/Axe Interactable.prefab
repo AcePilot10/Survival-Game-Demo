@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 33846009764852804}
   - component: {fileID: 23927262960877450}
   - component: {fileID: 54575064617663776}
-  - component: {fileID: 64174358546117404}
   - component: {fileID: 114995329883956442}
+  - component: {fileID: 65753161113701656}
+  - component: {fileID: 114986718126141364}
   m_Layer: 0
   m_Name: Axe Interactable
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1954796974416546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.85, y: -58.671295, z: -73.695}
+  m_LocalPosition: {x: 21.85, y: 5, z: -73.695}
   m_LocalScale: {x: 5.8983393, y: 5.8983407, z: 5.8983407}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +54,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,7 +69,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -100,8 +99,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64174358546117404
-MeshCollider:
+--- !u!65 &65753161113701656
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,11 +108,23 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: af1899c14033b8248919628f5cd9fe27, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.091032766, y: 0.02856, z: 0.38101906}
+  m_Center: {x: -0.031236384, y: 0.00000004004687, z: 0.10347289}
+--- !u!114 &114986718126141364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954796974416546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114995329883956442
 MonoBehaviour:
   m_ObjectHideFlags: 1
