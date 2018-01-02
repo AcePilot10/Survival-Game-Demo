@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour {
     {
         controller = GetComponent<FirstPersonController>();
         Cursor.visible = false;
-        mouseLook = GameObject.FindObjectOfType<FirstPersonController>().m_MouseLook;
+        mouseLook = FindObjectOfType<FirstPersonController>().m_MouseLook;
     }
 
     #region functionality
@@ -39,12 +39,16 @@ public class Inventory : MonoBehaviour {
 
     public bool ContainsItem(Item item)
     {
-        foreach (Item current in items)
+        if (items.Count > 0)
         {
-            if (current.id == item.id)
+            foreach (Item current in items)
             {
-                return true;
+                if (current.id == item.id)
+                {
+                    return true;
+                }
             }
+            return false;
         }
         return false;
     }
@@ -79,18 +83,6 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    /**
-    public void OrganizeInventory()
-    {
-        foreach(Item item in items)
-        {
-            if (item == null)
-            {
-                //items.Remove(item);
-                items.TrimExcess();
-            }
-        }
-    }*/
     #endregion
 
     #region Main Functions
