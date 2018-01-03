@@ -22,6 +22,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         showingUI = !showingUI;
     }
 
+<<<<<<< HEAD
     void OnGUI() {
         if (showingUI) {
             Rect pos = new Rect(Screen.width / 2, Screen.height / 2, Screen.width / 2, Screen.height / 2);
@@ -40,5 +41,20 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             }
             GUI.EndGroup();
         }
+=======
+    void Update()
+    {
+        if (showingUI)
+        {
+            optionsHolder.SetActive(true);
+        }
+        else {
+            optionsHolder.SetActive(false);
+        }
+    }
+
+    public void Unequip() {
+        PlayerEquipment.instance.Unequip(item, true);
+>>>>>>> parent of fd55c74... V1.1.0
     }
 }

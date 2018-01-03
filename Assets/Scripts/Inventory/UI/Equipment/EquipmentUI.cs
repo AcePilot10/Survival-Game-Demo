@@ -21,6 +21,32 @@ public class EquipmentUI : MonoBehaviour {
         {
             primarySlot.sprite = null;
             primaryTitle.text = "";
+<<<<<<< HEAD
+=======
+        }
+    }
+
+    #endregion
+
+    #region Tool
+
+    public Image toolSlot;
+    public Text toolTitle;
+
+    void UpdateTool() {
+        Equipment tool = PlayerEquipment.instance.tool;
+        if (tool != null)
+        {
+            toolSlot.sprite = tool.icon;
+            toolTitle.text = tool.itemName;
+            toolSlot.GetComponent<EquipmentSlot>().item = tool;
+        }
+        else
+        {
+            toolSlot.sprite = null;
+            toolTitle.text = "";
+            toolSlot.GetComponent<EquipmentSlot>().item = null;
+>>>>>>> parent of fd55c74... V1.1.0
         }
     }
 

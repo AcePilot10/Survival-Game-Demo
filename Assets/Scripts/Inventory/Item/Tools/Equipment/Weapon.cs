@@ -30,7 +30,18 @@ public class Weapon : Equipment {
     public override void Equip()
     {
         FindObjectOfType<PlayerStats>().SetAttackStrength(strength);
+<<<<<<< HEAD
         InitModel();
+=======
+        FindObjectOfType<PlayerAnimator>().hasWeapon = false;
+        InitModel();
+    }
+
+    public override void Unequip()
+    {
+        UnequipModel();
+        base.Unequip();
+>>>>>>> parent of fd55c74... V1.1.0
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
