@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EquipmentUI : MonoBehaviour {
 
-    #region Primary
+#region Primary
     public Image primarySlot;
     public Text primaryTitle;
 
@@ -26,32 +26,8 @@ public class EquipmentUI : MonoBehaviour {
 
     #endregion
 
-    #region Tool
-
-    public Image toolSlot;
-    public Text toolTitle;
-
-    void UpdateTool() {
-        Equipment tool = PlayerEquipment.instance.tool;
-        if (tool != null)
-        {
-            toolSlot.sprite = tool.icon;
-            toolTitle.text = tool.itemName;
-            toolSlot.GetComponent<EquipmentSlot>().item = tool;
-        }
-        else
-        {
-            toolSlot.sprite = null;
-            toolTitle.text = "";
-            toolSlot.GetComponent<EquipmentSlot>().item = null;
-        }
-    }
-
-    #endregion
-
     void Update()
     {
         UpdatePrimary();
-        UpdateTool();
     }
 }

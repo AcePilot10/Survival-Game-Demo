@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flashlight : Equipment {
+public class Flashlight : Tool {
 
     public GameObject model;
 
@@ -16,8 +16,13 @@ public class Flashlight : Equipment {
         position = PlayerEquipment.instance.flashlightPosition.transform;
     }
 
-    public override void InitModel() {
+    public void InitModel() {
         if (currentModel != null) Destroy(currentModel);
+        /**
+        currentModel = Instantiate(model,
+           PlayerEquipment.instance.flashlightPosition.transform.position, PlayerEquipment.instance.flashlightPosition.transform.rotation
+         , PlayerEquipment.instance.flashlightHolder.transform) as GameObject;
+    */
         Transform holder = PlayerEquipment.instance.flashlightHolder.transform;
         Transform position = PlayerEquipment.instance.flashlightPosition.transform;
         currentModel = Instantiate(model) as GameObject;
@@ -30,13 +35,7 @@ public class Flashlight : Equipment {
 
     public override void Use()
     {
-        Equip();
+        InitModel();
         base.Use();
-    }
-
-    public override void UnequipModel()
-    {
-        Destroy(currentModel);
-        base.UnequipModel();
     }
 }
