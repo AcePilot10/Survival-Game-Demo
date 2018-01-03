@@ -28,17 +28,14 @@ public class PlayerEquipment : MonoBehaviour {
 
     void EquipPrimary(Primary primary) {
         this.primary = primary;
-<<<<<<< HEAD
         primary.Equip();
     }
 
     void UnequipPrimary(bool addToInventory) {
         FindObjectOfType<PlayerAnimator>().hasWeapon = false;
-=======
     }
 
     void UnequipPrimary(bool addToInventory) {
->>>>>>> parent of 1633f48... V1.1.0
         if(addToInventory)
         {
             Inventory.instance.AddItem(primary);
@@ -47,8 +44,7 @@ public class PlayerEquipment : MonoBehaviour {
     }
     #endregion
 
-<<<<<<< HEAD
-=======
+
     #region Tool
     public Equipment tool;
     public GameObject flashlightHolder;
@@ -71,20 +67,19 @@ public class PlayerEquipment : MonoBehaviour {
     }
     #endregion
 
->>>>>>> parent of 1633f48... V1.1.0
+
     public void Equip(Equipment item) {
         if (item is Primary)
         {
             EquipPrimary(item as Primary);
         }
-<<<<<<< HEAD
-=======
+
         else if (item is Tool)
         {
             EquipTool(item as Equipment);
         }
         Inventory.instance.RemoveItem(item);
->>>>>>> parent of 1633f48... V1.1.0
+
     }
 
     public void Unequip(Equipment item, bool addToInventory) {
