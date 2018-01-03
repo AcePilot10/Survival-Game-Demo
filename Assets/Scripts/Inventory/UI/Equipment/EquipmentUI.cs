@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EquipmentUI : MonoBehaviour {
 
-#region Primary
+    #region Primary
     public Image primarySlot;
     public Text primaryTitle;
 
@@ -52,5 +52,6 @@ public class EquipmentUI : MonoBehaviour {
     void Update()
     {
         UpdatePrimary();
+        UpdateTool();
     }
 }

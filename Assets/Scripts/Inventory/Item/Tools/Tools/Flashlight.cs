@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-public class Flashlight : Tool {
-=======
-=======
->>>>>>> parent of 1633f48... V1.1.0
+[CreateAssetMenu(menuName = "Item/Tool/Flashlight", fileName = "Flashlight")]
 public class Flashlight : Equipment {
->>>>>>> parent of 1633f48... V1.1.0
 
     public GameObject model;
 
@@ -23,13 +17,8 @@ public class Flashlight : Equipment {
         position = PlayerEquipment.instance.flashlightPosition.transform;
     }
 
-    public void InitModel() {
+    public override void InitModel() {
         if (currentModel != null) Destroy(currentModel);
-        /**
-        currentModel = Instantiate(model,
-           PlayerEquipment.instance.flashlightPosition.transform.position, PlayerEquipment.instance.flashlightPosition.transform.rotation
-         , PlayerEquipment.instance.flashlightHolder.transform) as GameObject;
-    */
         Transform holder = PlayerEquipment.instance.flashlightHolder.transform;
         Transform position = PlayerEquipment.instance.flashlightPosition.transform;
         currentModel = Instantiate(model) as GameObject;
@@ -42,15 +31,13 @@ public class Flashlight : Equipment {
 
     public override void Use()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        InitModel();
-=======
-        Equip();
->>>>>>> parent of 1633f48... V1.1.0
-=======
-        Equip();
->>>>>>> parent of 1633f48... V1.1.0
+        PlayerEquipment.instance.EquipTool(this);
         base.Use();
+    }
+
+    public override void UnequipModel()
+    {
+        Destroy(currentModel);
+        base.UnequipModel();
     }
 }

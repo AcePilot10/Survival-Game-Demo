@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour {
     {
         controller = GetComponent<FirstPersonController>();
         Cursor.visible = false;
-        mouseLook = GameObject.FindObjectOfType<FirstPersonController>().m_MouseLook;
+        mouseLook = FindObjectOfType<FirstPersonController>().m_MouseLook;
     }
 
     #region functionality
@@ -39,13 +39,10 @@ public class Inventory : MonoBehaviour {
 
     public bool ContainsItem(Item item)
     {
-        foreach (Item current in items)
+        if (items.Count > 0)
         {
-            if (current.id == item.id)
+            foreach (Item current in items)
             {
-<<<<<<< HEAD
-                return true;
-=======
                 try
                 {
                     if (current.id == item.id)
@@ -57,8 +54,8 @@ public class Inventory : MonoBehaviour {
                 {
                     return false;
                 }
->>>>>>> parent of f261e13... Revert "Merge branch 'master' of https://github.com/AcePilot10/Survival-Game-Demo"
             }
+            return false;
         }
         return false;
     }
@@ -93,18 +90,6 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    /**
-    public void OrganizeInventory()
-    {
-        foreach(Item item in items)
-        {
-            if (item == null)
-            {
-                //items.Remove(item);
-                items.TrimExcess();
-            }
-        }
-    }*/
     #endregion
 
     #region Main Functions

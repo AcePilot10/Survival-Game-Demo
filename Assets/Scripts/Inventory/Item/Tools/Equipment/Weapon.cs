@@ -10,7 +10,7 @@ public class Weapon : Equipment {
 
     private GameObject currentModel;
 
-    void InitModel()
+    public override void InitModel()
     {
         Transform primaryHolder = FindObjectOfType<PlayerEquipment>().primaryHolder.transform;
         Transform primaryPosition = FindObjectOfType<PlayerEquipment>().primaryPosition.transform;
@@ -19,7 +19,7 @@ public class Weapon : Equipment {
         PlayerManager.instance.GetPlayer().GetComponent<PlayerAnimator>().hasWeapon = true;
     }
 
-    void UnequipModel()
+    public override void UnequipModel()
     {
         if (currentModel != null)
         {
@@ -30,7 +30,6 @@ public class Weapon : Equipment {
     public override void Equip()
     {
         FindObjectOfType<PlayerStats>().SetAttackStrength(strength);
-        InitModel();
         FindObjectOfType<PlayerAnimator>().hasWeapon = false;
         InitModel();
     }
@@ -38,13 +37,6 @@ public class Weapon : Equipment {
     public override void Unequip()
     {
         UnequipModel();
-        base.Unequip();
-    }
-
-    public override void Unequip()
-    {
-        UnequipModel();
-        FindObjectOfType<PlayerStats>().SetAttackStrengthToFist();
         base.Unequip();
     }
 }
