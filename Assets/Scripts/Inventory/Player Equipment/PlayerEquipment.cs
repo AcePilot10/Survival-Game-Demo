@@ -28,6 +28,7 @@ public class PlayerEquipment : MonoBehaviour {
 
     void EquipPrimary(Primary primary) {
         this.primary = primary;
+<<<<<<< HEAD
         primary.Equip();
     }
 
@@ -36,6 +37,11 @@ public class PlayerEquipment : MonoBehaviour {
     }
 
     void UnequipPrimary(bool addToInventory) {
+=======
+    }
+
+    void UnequipPrimary(bool addToInventory) {
+>>>>>>> parent of 1633f48... V1.1.0
         if(addToInventory)
         {
             Inventory.instance.AddItem(primary);
@@ -79,7 +85,10 @@ public class PlayerEquipment : MonoBehaviour {
             EquipTool(item as Equipment);
         }
         Inventory.instance.RemoveItem(item);
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 1633f48... V1.1.0
     }
 
     public void Unequip(Equipment item, bool addToInventory) {

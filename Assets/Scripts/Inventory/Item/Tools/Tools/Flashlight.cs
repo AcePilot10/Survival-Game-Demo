@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Flashlight : Tool {
 =======
+=======
+>>>>>>> parent of 1633f48... V1.1.0
 public class Flashlight : Equipment {
 >>>>>>> parent of 1633f48... V1.1.0
 
@@ -40,7 +43,11 @@ public class Flashlight : Equipment {
     public override void Use()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         InitModel();
+=======
+        Equip();
+>>>>>>> parent of 1633f48... V1.1.0
 =======
         Equip();
 >>>>>>> parent of 1633f48... V1.1.0

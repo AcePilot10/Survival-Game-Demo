@@ -33,6 +33,7 @@ public class Weapon : Equipment {
         InitModel();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public override void Unequip()
     {
@@ -40,6 +41,8 @@ public class Weapon : Equipment {
         FindObjectOfType<PlayerStats>().SetAttackStrengthToFist();
         base.Unequip();
     }
+=======
+>>>>>>> parent of 1633f48... V1.1.0
 =======
 >>>>>>> parent of 1633f48... V1.1.0
 }
