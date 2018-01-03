@@ -21,8 +21,6 @@ public class EquipmentUI : MonoBehaviour {
         {
             primarySlot.sprite = null;
             primaryTitle.text = "";
-<<<<<<< HEAD
-=======
         }
     }
 
@@ -46,7 +44,6 @@ public class EquipmentUI : MonoBehaviour {
             toolSlot.sprite = null;
             toolTitle.text = "";
             toolSlot.GetComponent<EquipmentSlot>().item = null;
->>>>>>> parent of fd55c74... V1.1.0
         }
     }
 

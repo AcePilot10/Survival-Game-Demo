@@ -43,7 +43,21 @@ public class Inventory : MonoBehaviour {
         {
             if (current.id == item.id)
             {
+<<<<<<< HEAD
                 return true;
+=======
+                try
+                {
+                    if (current.id == item.id)
+                    {
+                        return true;
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    return false;
+                }
+>>>>>>> parent of f261e13... Revert "Merge branch 'master' of https://github.com/AcePilot10/Survival-Game-Demo"
             }
         }
         return false;

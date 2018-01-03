@@ -24,6 +24,17 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.I)) {
             GetComponent<Inventory>().ToggleInventory();
         }
+<<<<<<< HEAD
+=======
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            FindObjectOfType<CraftingMenu>().Toggle();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGame();
+        }
+>>>>>>> parent of f261e13... Revert "Merge branch 'master' of https://github.com/AcePilot10/Survival-Game-Demo"
     }
 
     void InitAttack() {
@@ -99,5 +110,9 @@ public class PlayerInput : MonoBehaviour {
                 interactable.Interact();
             }
         }
+    }
+
+    void ExitGame() {
+        Application.Quit();
     }
 }
