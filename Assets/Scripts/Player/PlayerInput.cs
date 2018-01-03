@@ -25,8 +25,12 @@ public class PlayerInput : MonoBehaviour {
             GetComponent<Inventory>().ToggleInventory();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) {
-
+        if (Input.GetKeyDown(KeyCode.C)) {
+            FindObjectOfType<CraftingMenu>().Toggle();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGame();
         }
     }
 
@@ -102,5 +106,9 @@ public class PlayerInput : MonoBehaviour {
                 interactable.Interact();
             }
         }
+    }
+
+    void ExitGame() {
+        Application.Quit();
     }
 }
