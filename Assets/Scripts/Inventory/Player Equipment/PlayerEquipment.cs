@@ -35,6 +35,7 @@ public class PlayerEquipment : MonoBehaviour {
         {
             Inventory.instance.AddItem(primary);
         }
+        primary.Unequip();
         primary = null;
     }
     #endregion

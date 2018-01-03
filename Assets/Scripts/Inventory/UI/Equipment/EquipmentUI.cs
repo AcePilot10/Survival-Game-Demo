@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentUI : MonoBehaviour {
@@ -9,19 +11,16 @@ public class EquipmentUI : MonoBehaviour {
 
     void UpdatePrimary()
     {
-        EquipmentSlot slot = primarySlot.GetComponent<EquipmentSlot>();
         Primary primary = PlayerEquipment.instance.primary;
         if (primary != null)
         {
             primarySlot.sprite = primary.icon;
             primaryTitle.text = primary.itemName;
-            slot.item = primary;
         }
         else
         {
             primarySlot.sprite = null;
             primaryTitle.text = "";
-            slot.item = null;
         }
     }
 
