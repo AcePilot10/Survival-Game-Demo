@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Tool/Flashlight", fileName = "Flashlight")]
 public class Flashlight : Equipment {
 
     public GameObject model;
@@ -31,7 +30,7 @@ public class Flashlight : Equipment {
 
     public override void Use()
     {
-        PlayerEquipment.instance.EquipTool(this);
+        Equip();
         base.Use();
     }
 

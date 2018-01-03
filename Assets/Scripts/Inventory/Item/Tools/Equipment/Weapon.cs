@@ -33,10 +33,4 @@ public class Weapon : Equipment {
         FindObjectOfType<PlayerAnimator>().hasWeapon = false;
         InitModel();
     }
-
-    public override void Unequip()
-    {
-        UnequipModel();
-        base.Unequip();
-    }
 }

@@ -9,34 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1440333145824346}
+  m_RootGameObject: {fileID: 1894927296008182}
   m_IsPrefabParent: 1
---- !u!1 &1440333145824346
+--- !u!1 &1894927296008182
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4936403973999812}
-  - component: {fileID: 33746304470348042}
-  - component: {fileID: 23301873696960976}
-  - component: {fileID: 64664611256394744}
-  - component: {fileID: 54783153301162718}
-  - component: {fileID: 114131051024141472}
+  - component: {fileID: 4193173592743452}
+  - component: {fileID: 33766700471602998}
+  - component: {fileID: 23798201333025626}
+  - component: {fileID: 64454813849321672}
+  - component: {fileID: 54856711075985330}
+  - component: {fileID: 114946501541198862}
   m_Layer: 0
-  m_Name: Flashlight Interactable
+  m_Name: Flashlight Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4936403973999812
+--- !u!4 &4193173592743452
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440333145824346}
+  m_GameObject: {fileID: 1894927296008182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -87.159, y: 2.792, z: 7.659}
   m_LocalScale: {x: 0.20915177, y: 0.20915177, z: 0.20915177}
@@ -44,12 +44,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23301873696960976
+--- !u!23 &23798201333025626
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440333145824346}
+  m_GameObject: {fileID: 1894927296008182}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33746304470348042
+--- !u!33 &33766700471602998
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440333145824346}
+  m_GameObject: {fileID: 1894927296008182}
   m_Mesh: {fileID: 4300000, guid: c3165f284bb39594a8fd69598022a903, type: 3}
---- !u!54 &54783153301162718
+--- !u!54 &54856711075985330
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440333145824346}
+  m_GameObject: {fileID: 1894927296008182}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -99,12 +99,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64664611256394744
+--- !u!64 &64454813849321672
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440333145824346}
+  m_GameObject: {fileID: 1894927296008182}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -113,16 +113,20 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c3165f284bb39594a8fd69598022a903, type: 3}
---- !u!114 &114131051024141472
+--- !u!114 &114946501541198862
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440333145824346}
+  m_GameObject: {fileID: 1894927296008182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0f7936abf7c04285c95c5f92638f4, type: 3}
+  m_Script: {fileID: 11500000, guid: cb6b9b1e6c7f0c447b869f70368b64fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableName: Flashlight
-  item: {fileID: 114946501541198862, guid: 840e6c09a4dad744eb7564f3a9016c61, type: 2}
+  id: 2
+  icon: {fileID: 21300000, guid: 1cbd55fcaa8c4984d918b1ce8dfe6dc8, type: 3}
+  itemName: Flashlight
+  interactable: {fileID: 1440333145824346, guid: d4e8f7f6533382941a7490487fe33585,
+    type: 2}
+  model: {fileID: 1234323958970972, guid: e083c73edee0ccb4ea087e54adaf01f1, type: 2}

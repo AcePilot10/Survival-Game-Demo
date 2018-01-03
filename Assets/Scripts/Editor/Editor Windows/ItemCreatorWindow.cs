@@ -3,8 +3,6 @@ using UnityEditor;
 
 public class ItemCreatorWindow : EditorWindow {
 
-    /**
-
     #region Fields
     #region Gloabl
     string itemName;
@@ -121,5 +119,4 @@ public class ItemCreatorWindow : EditorWindow {
         Interactable interactable = createdInteractable.GetComponent<Interactable>();
         interactable.interactableName = itemName;
     }
-    */
 }

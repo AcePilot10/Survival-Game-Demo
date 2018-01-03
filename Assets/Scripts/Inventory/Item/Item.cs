@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Basic Item", fileName = "Item")]
-[System.Serializable]
-public class Item : ScriptableObject {
+public class Item : MonoBehaviour {
 
     public int id;
     public Sprite icon;
@@ -25,8 +23,8 @@ public class Item : ScriptableObject {
     public virtual void Drop()
     {
         GameObject obj = Instantiate(interactable) as GameObject;
-        Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (PlayerManager.instance.GetPlayer().transform.forward * 3);
-        pos.y = PlayerManager.instance.GetPlayer().transform.position.y - 3;
+        Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (transform.forward * 3);
+        pos.y = transform.position.y - 3;
         obj.transform.position = pos;
         Inventory.instance.RemoveItem(this);
     }
@@ -38,8 +36,8 @@ public class Item : ScriptableObject {
     
     public virtual void InstantiateDrop() {
         GameObject obj = Instantiate(interactable) as GameObject;
-        Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (PlayerManager.instance.GetPlayer().transform.forward * 3);
-        pos.y = PlayerManager.instance.GetPlayer().transform.position.y - 3;
+        Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (transform.forward * 3);
+        pos.y = transform.position.y - 3;
         obj.transform.position = pos;
     }
 }

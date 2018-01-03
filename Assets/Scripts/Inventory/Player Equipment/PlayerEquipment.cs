@@ -24,13 +24,11 @@ public class PlayerEquipment : MonoBehaviour {
         return primary != null;
     }
 
-    public void EquipPrimary(Primary primary) {
+    void EquipPrimary(Primary primary) {
         this.primary = primary;
-        primary.Equip();
-        if (Inventory.instance.ContainsItem(primary)) { Inventory.instance.RemoveItem(primary); }
     }
 
-    public void UnequipPrimary(bool addToInventory) {
+    void UnequipPrimary(bool addToInventory) {
         if(addToInventory)
         {
             Inventory.instance.AddItem(primary);
@@ -49,13 +47,11 @@ public class PlayerEquipment : MonoBehaviour {
         return tool != null;
     }
 
-    public void EquipTool(Equipment tool) {
+    void EquipTool(Equipment tool) {
         this.tool = tool;
-        tool.Equip();
-        if (Inventory.instance.ContainsItem(tool)) { Inventory.instance.RemoveItem(tool); }
     }
     
-    public void UnequipTool(bool addToInventory) {
+    void UnequipTool(bool addToInventory) {
         if (addToInventory) {
             Inventory.instance.AddItem(tool);
         }
@@ -73,12 +69,7 @@ public class PlayerEquipment : MonoBehaviour {
         {
             EquipTool(item as Equipment);
         }
-        
-        if (Inventory.instance.ContainsItem(item))
-        {
-            Inventory.instance.RemoveItem(item);
-        }
-    
+        Inventory.instance.RemoveItem(item);
     }
 
     public void Unequip(Equipment item, bool addToInventory) {
