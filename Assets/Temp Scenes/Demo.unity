@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 95618121}
-  m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
+  m_IndirectSpecularColor: {r: 0.80377746, g: 0.7082274, b: 0.62298125, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 0
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 9
     m_Resolution: 2
@@ -77,18 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 112000002, guid: 76a3f9220e3360643b1565974db51e69,
     type: 2}
   m_UseShadowmask: 0
@@ -111,8 +108,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: fc2e98230668d6e4981fbdcccef1318d, type: 2}
 --- !u!1001 &6944750
 Prefab:
@@ -1369,6 +1364,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -7106,11 +7115,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!4 &434650536 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -8071,8 +8080,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 3.93, y: 0}
+  m_SizeDelta: {x: 139.27, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518328159
 MonoBehaviour:
@@ -8114,7 +8123,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1398658377}
-        m_MethodName: Unequip
+        m_MethodName: Drop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8899,7 +8908,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8915,7 +8923,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -9861,6 +9868,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -10484,7 +10505,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114986718126141364, guid: 1fb6c16e8f50a8b41a64f082731ad7c1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114986718126141364, guid: 1fb6c16e8f50a8b41a64f082731ad7c1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1fb6c16e8f50a8b41a64f082731ad7c1, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &710927140 stripped
@@ -16434,6 +16461,86 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.2933545
       objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: quality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: tweakMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: screenBlendMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: hdr
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: bloomIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: bloomThreshold
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: bloomBlurIterations
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: sepBlurSpread
+      value: 4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: visualizeFocus
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: focalSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: aperture
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: blurType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: highResolution
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960671969424814, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: foregroundOverlap
+      value: 1.23
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114266684184510376, guid: 28ff747fab79880498cde8f345429006, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28ff747fab79880498cde8f345429006, type: 2}
@@ -20723,14 +20830,17 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh-4472
+=======
+  m_Name: pb_Mesh-4348
+>>>>>>> fd55c746108b23d6adfff1e9d2c5a7b163a066d3
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
     indexCount: 132
     topology: 0
-    baseVertex: 0
     firstVertex: 0
     vertexCount: 78
     localAABB:
@@ -20748,7 +20858,6 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
-  m_IndexFormat: 0
   m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600180019001a0018001a001b001c001d001e001c001e001f002000210022002000220023002400250026002400260027000e000f0028000f00290028002a002b002c002b002d002c002e002f0030002f0031003000320033003400330035003400280029003600290037003600380039003a0039003b003a003c003d003e003d003f003e00340035004000350041004000360037004200370043004200440045004600450047004600480049004a0049004b004a00400041004c0041004d004c00
   m_Skin: []
   m_VertexData:
@@ -21043,14 +21152,17 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh-4670
+=======
+  m_Name: pb_Mesh-4546
+>>>>>>> fd55c746108b23d6adfff1e9d2c5a7b163a066d3
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
     indexCount: 132
     topology: 0
-    baseVertex: 0
     firstVertex: 0
     vertexCount: 78
     localAABB:
@@ -21068,7 +21180,6 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
-  m_IndexFormat: 0
   m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600180019001a0018001a001b001c001d001e001c001e001f002000210022002000220023002400250026002400260027000e000f0028000f00290028002a002b002c002b002d002c002e002f0030002f0031003000320033003400330035003400280029003600290037003600380039003a0039003b003a003c003d003e003d003f003e00340035004000350041004000360037004200370043004200440045004600450047004600480049004a0049004b004a00400041004c0041004d004c00
   m_Skin: []
   m_VertexData:
@@ -25033,14 +25144,17 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh-2944
+=======
+  m_Name: pb_Mesh-2820
+>>>>>>> fd55c746108b23d6adfff1e9d2c5a7b163a066d3
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
     indexCount: 132
     topology: 0
-    baseVertex: 0
     firstVertex: 0
     vertexCount: 78
     localAABB:
@@ -25058,7 +25172,6 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
-  m_IndexFormat: 0
   m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600180019001a0018001a001b001c001d001e001c001e001f002000210022002000220023002400250026002400260027000e000f0028000f00290028002a002b002c002b002d002c002e002f0030002f0031003000320033003400330035003400280029003600290037003600380039003a0039003b003a003c003d003e003d003f003e00340035004000350041004000360037004200370043004200440045004600450047004600480049004a0049004b004a00400041004c0041004d004c00
   m_Skin: []
   m_VertexData:

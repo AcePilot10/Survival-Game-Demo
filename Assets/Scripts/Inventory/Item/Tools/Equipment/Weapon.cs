@@ -31,12 +31,6 @@ public class Weapon : Equipment {
     {
         FindObjectOfType<PlayerStats>().SetAttackStrength(strength);
         FindObjectOfType<PlayerAnimator>().hasWeapon = false;
-        InitModel();
-    }
-
-    public override void Unequip()
-    {
-        UnequipModel();
-        base.Unequip();
+        base.Equip();
     }
 }
