@@ -41,6 +41,7 @@ RenderSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 =======
   m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
@@ -51,6 +52,9 @@ RenderSettings:
 =======
   m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
 >>>>>>> parent of 1734762... V1.1.1
+=======
+  m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
+>>>>>>> parent of fd55c74... V1.1.0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -16131,6 +16135,7 @@ Prefab:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
         type: 2}
       propertyPath: m_Enabled
@@ -16217,6 +16222,8 @@ Prefab:
 >>>>>>> parent of fd55c74... V1.1.0
 =======
 >>>>>>> parent of 1734762... V1.1.1
+=======
+>>>>>>> parent of fd55c74... V1.1.0
     m_RemovedComponents:
     - {fileID: 114266684184510376, guid: 28ff747fab79880498cde8f345429006, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28ff747fab79880498cde8f345429006, type: 2}
@@ -20374,6 +20381,7 @@ Mesh:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: pb_Mesh-4348
 =======
   m_Name: pb_Mesh-4472
@@ -20405,6 +20413,9 @@ Mesh:
 =======
   m_Name: pb_Mesh-51998
 >>>>>>> parent of 49086bc... V1.1.1
+=======
+  m_Name: pb_Mesh-51998
+>>>>>>> parent of fd55c74... V1.1.0
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -20734,6 +20745,7 @@ Mesh:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: pb_Mesh-4546
 =======
   m_Name: pb_Mesh-4670
@@ -20765,6 +20777,9 @@ Mesh:
 =======
   m_Name: pb_Mesh-52196
 >>>>>>> parent of 49086bc... V1.1.1
+=======
+  m_Name: pb_Mesh-52196
+>>>>>>> parent of fd55c74... V1.1.0
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -24563,6 +24578,7 @@ Mesh:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: pb_Mesh-2820
 =======
   m_Name: pb_Mesh-2944
@@ -24594,6 +24610,9 @@ Mesh:
 =======
   m_Name: pb_Mesh-50446
 >>>>>>> parent of 49086bc... V1.1.1
+=======
+  m_Name: pb_Mesh-50446
+>>>>>>> parent of fd55c74... V1.1.0
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
