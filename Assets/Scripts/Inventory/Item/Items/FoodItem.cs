@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Item/Food", fileName = "Food")]
 public class FoodItem : IStackable {
 
     public float foodAmount;
