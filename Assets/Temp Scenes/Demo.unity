@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 95618121}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
+>>>>>>> parent of 1734762... V1.1.1
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -52,7 +56,7 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 9
     m_Resolution: 2
@@ -7881,8 +7885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.93, y: 0}
-  m_SizeDelta: {x: 139.27, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518328159
 MonoBehaviour:
@@ -7924,7 +7928,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1398658377}
-        m_MethodName: Drop
+        m_MethodName: Unequip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10294,13 +10298,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114986718126141364, guid: 1fb6c16e8f50a8b41a64f082731ad7c1,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114986718126141364, guid: 1fb6c16e8f50a8b41a64f082731ad7c1, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fb6c16e8f50a8b41a64f082731ad7c1, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &710927140 stripped
@@ -16164,6 +16162,7 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.2933545
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 114398689073640946, guid: 28ff747fab79880498cde8f345429006,
         type: 2}
       propertyPath: m_Enabled
@@ -16244,6 +16243,8 @@ Prefab:
       propertyPath: foregroundOverlap
       value: 1.23
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 1734762... V1.1.1
     m_RemovedComponents:
     - {fileID: 114266684184510376, guid: 28ff747fab79880498cde8f345429006, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28ff747fab79880498cde8f345429006, type: 2}
@@ -20391,7 +20392,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh-4348
+=======
+  m_Name: pb_Mesh-4472
+>>>>>>> parent of 1734762... V1.1.1
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -20711,7 +20716,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh-4546
+=======
+  m_Name: pb_Mesh-4670
+>>>>>>> parent of 1734762... V1.1.1
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -24500,7 +24509,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh-2820
+=======
+  m_Name: pb_Mesh-2944
+>>>>>>> parent of 1734762... V1.1.1
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

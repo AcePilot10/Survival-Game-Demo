@@ -8,15 +8,4 @@ public class Primary : Weapon {
         PlayerEquipment.instance.EquipPrimary(this);
         base.Use();
     }
-
-    public override void Drop()
-    {
-        base.Drop();
-        base.Unequip();
-    }
-
-    public void AddToInventory() {
-        Unequip();
-        PlayerEquipment.instance.UnequipPrimary(true);
-    }
 }
