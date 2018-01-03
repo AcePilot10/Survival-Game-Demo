@@ -43,16 +43,9 @@ public class Inventory : MonoBehaviour {
         {
             foreach (Item current in items)
             {
-                try
+                if (current.id == item.id)
                 {
-                    if (current.id == item.id)
-                    {
-                        return true;
-                    }
-                }
-                catch (System.Exception e)
-                {
-                    return false;
+                    return true;
                 }
             }
             return false;
