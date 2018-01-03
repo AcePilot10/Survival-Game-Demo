@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Equipment : Tool {
 
-    public virtual void Equip(){}
 
-    public virtual void Unequip()
+    public override void Unequip()
     {
-        PlayerEquipment.instance.Unequip(this, true);
+        UnequipModel();
     }
 
-    public override void Pickup()
+    public override void Equip()
     {
-        Equip();
+        PlayerEquipment.instance.Equip(this);
+        InitModel();
+        base.Equip();
     }
 }

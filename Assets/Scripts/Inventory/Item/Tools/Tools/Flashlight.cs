@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 public class Flashlight : Tool {
+=======
+public class Flashlight : Equipment {
+>>>>>>> parent of 1633f48... V1.1.0
 
     public GameObject model;
 
@@ -35,7 +39,11 @@ public class Flashlight : Tool {
 
     public override void Use()
     {
+<<<<<<< HEAD
         InitModel();
+=======
+        Equip();
+>>>>>>> parent of 1633f48... V1.1.0
         base.Use();
     }
 }
