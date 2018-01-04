@@ -73,7 +73,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 FindObjectOfType<PlayerAnimator>().SetRunning();
             }
             RotateView();
-            if (!m_Jump)
+            if (!m_Jump && canMove)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -8,7 +10,12 @@ public class PlayerHealth : MonoBehaviour {
     public float hunger;
     public float stamina;
 
+    public float starveDamageAmount;
+
+    public float respawnDelay;
+
     private bool isFatigued = false;
+    private bool isDead = false;
 
     #region Settings
     public float staminaZeroDelay;
@@ -20,15 +27,20 @@ public class PlayerHealth : MonoBehaviour {
     {
         CheckStamina();
         ReduceHunger();
+        CheckHealth();
     }
 
     #region Health Management
 
     #region hunger
     public void ReduceHunger() {
-        if(hunger > 0)
+        if (hunger > 0)
         {
             hunger -= foodDrainSpeed;
+        }
+        else
+        {
+            health -= starveDamageAmount;
         }
     }
 
@@ -42,6 +54,17 @@ public class PlayerHealth : MonoBehaviour {
     public void TakeDamage(float amount)
     {
         health -= amount;
+    }
+
+    public void CheckHealth()
+    {
+        if (!isDead)
+        {
+            if (health <= 0)
+            {
+                StartCoroutine(Die());
+            }
+        }
     }
     #endregion 
 
@@ -100,4 +123,29 @@ public class PlayerHealth : MonoBehaviour {
     #endregion
 
     #endregion
+
+    public IEnumerator Die()
+    {
+        isDead = true;
+        Debug.Log("Player Died!");
+        FindObjectOfType<FirstPersonController>().canMove = false;
+        yield return new WaitForSeconds(respawnDelay);
+        SceneManager.LoadScene(0);
+        //DropInventory();
+    }
+
+    private void DropInventory()
+    {
+        if (Inventory.instance.items.Count > 0)
+        {
+            try
+            {
+                foreach (Item item in Inventory.instance.items)
+                {
+                    item.Drop();
+                }
+            }
+            catch { }
+        }
+    }
 }

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingMenu : MonoBehaviour {
 
     public GameObject holder;
+    public Text ingredientDisplay;
 
     private bool showingUI = false;
     private MouseLook mouseLook;

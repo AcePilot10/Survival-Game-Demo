@@ -12,12 +12,20 @@ public class TigerCreature : Creature
         anim = GetComponent<Animator>();
     }
 
+    public override void Attack(float amount)
+    {
+        anim.SetTrigger("Hit");
+        base.Attack(amount);
+    }
+
     public override void Die()
     {
-        anim.SetTrigger("Die");
+        anim.SetTrigger("Hurt");
+        Debug.Log("Tiger Died!");
     }
 
     public void AnimatorDie() {
-        base.Die();
+        DropItems();
+        Destroy(this);
     }
 }

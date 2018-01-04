@@ -6,10 +6,17 @@ public class Creature : Entity {
 
     public float health = 100f;
     public bool isAlive = true;
+    public Item[] drops;
 
     private void Update()
     {
         CheckHealth();
+    }
+
+    public override void Attack(float amount)
+    {
+        ReduceHealth(amount);
+        base.Attack(amount);
     }
 
     public virtual void ReduceHealth(float amount)
@@ -31,5 +38,13 @@ public class Creature : Entity {
     public virtual void Die()
     {
         isAlive = false;
+    }
+
+    public virtual void DropItems()
+    {
+        foreach(Item item in drops)
+        {
+            item.InstantiateDrop();
+        }
     }
 }
