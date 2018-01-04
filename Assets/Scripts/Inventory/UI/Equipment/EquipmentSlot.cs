@@ -34,7 +34,16 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void Unequip() {
-        PlayerEquipment.instance.Unequip(item, true);
+    public virtual void Unequip() {
+        switch (type)
+        {
+            case EquipmentType.PRIMARY:
+                PlayerEquipment.instance.UnequipPrimary(true);
+                break;
+            case EquipmentType.TOOL:
+                PlayerEquipment.instance.UnequipTool(true);
+                break;
+        }
+        ToggleUI();
     }
 }

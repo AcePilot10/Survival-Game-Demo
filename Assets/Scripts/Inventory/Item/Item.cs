@@ -26,7 +26,8 @@ public class Item : ScriptableObject {
     {
         GameObject obj = Instantiate(interactable) as GameObject;
         Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (PlayerManager.instance.GetPlayer().transform.forward * 3);
-        pos.y = PlayerManager.instance.GetPlayer().transform.position.y - 3;
+        pos.y = PlayerManager.instance.GetPlayer().transform.position.y;
+        pos.z += 0.2f;
         obj.transform.position = pos;
         Inventory.instance.RemoveItem(this);
     }

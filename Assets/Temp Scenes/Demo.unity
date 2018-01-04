@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 95618121}
-  m_IndirectSpecularColor: {r: 0.80377746, g: 0.7082274, b: 0.62298125, a: 1}
+  m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 112000002, guid: 76a3f9220e3360643b1565974db51e69,
     type: 2}
   m_UseShadowmask: 0
@@ -108,6 +111,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: fc2e98230668d6e4981fbdcccef1318d, type: 2}
 --- !u!1001 &6944750
 Prefab:
@@ -1242,20 +1247,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -1735,8 +1726,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.7786543
-      value: 0.79260015
+      time: 0.8003523
+      value: 0.8832755
       inSlope: 0.95129013
       outSlope: 0.95129013
       tangentMode: 0
@@ -1759,8 +1750,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.7349471
-      value: 0.4527352
+      time: 0.6915511
+      value: 0.7273476
       inSlope: 0.96052885
       outSlope: 0.96052885
       tangentMode: 0
@@ -4019,7 +4010,19 @@ Prefab:
       propertyPath: ingredientDisplay
       value: 
       objectReference: {fileID: 1006779388}
-    m_RemovedComponents: []
+    - target: {fileID: 114602565454231820, guid: b2a9e3ff770a9ed419dd58787a6fcd00,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Unequip
+      objectReference: {fileID: 0}
+    - target: {fileID: 114771741388885064, guid: b2a9e3ff770a9ed419dd58787a6fcd00,
+        type: 2}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114602565454231820, guid: b2a9e3ff770a9ed419dd58787a6fcd00, type: 2}
+    - {fileID: 114650924340733006, guid: b2a9e3ff770a9ed419dd58787a6fcd00, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b2a9e3ff770a9ed419dd58787a6fcd00, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &350023273 stripped
@@ -5118,6 +5121,7 @@ MonoBehaviour:
   entityName: Tiger
   health: 100
   isAlive: 1
+  drops: []
 --- !u!114 &426353842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5130,6 +5134,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleObject: {fileID: 0}
+--- !u!114 &426353843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 426353840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5419e82ae3b51dc4ca0f90e0cedf7959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAngle: 45
 --- !u!4 &427257866 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 2}
@@ -6445,11 +6461,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &434650536 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -8116,6 +8132,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8131,6 +8148,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -15626,6 +15644,11 @@ Prefab:
       propertyPath: respawnDelay
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 82044240882964310, guid: 28ff747fab79880498cde8f345429006,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114266684184510376, guid: 28ff747fab79880498cde8f345429006, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28ff747fab79880498cde8f345429006, type: 2}
@@ -19769,6 +19792,7 @@ Mesh:
     firstByte: 0
     indexCount: 132
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 78
     localAABB:
@@ -19786,6 +19810,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600180019001a0018001a001b001c001d001e001c001e001f002000210022002000220023002400250026002400260027000e000f0028000f00290028002a002b002c002b002d002c002e002f0030002f0031003000320033003400330035003400280029003600290037003600380039003a0039003b003a003c003d003e003d003f003e00340035004000350041004000360037004200370043004200440045004600450047004600480049004a0049004b004a00400041004c0041004d004c00
   m_Skin: []
   m_VertexData:
@@ -20087,6 +20112,7 @@ Mesh:
     firstByte: 0
     indexCount: 132
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 78
     localAABB:
@@ -20104,6 +20130,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600180019001a0018001a001b001c001d001e001c001e001f002000210022002000220023002400250026002400260027000e000f0028000f00290028002a002b002c002b002d002c002e002f0030002f0031003000320033003400330035003400280029003600290037003600380039003a0039003b003a003c003d003e003d003f003e00340035004000350041004000360037004200370043004200440045004600450047004600480049004a0049004b004a00400041004c0041004d004c00
   m_Skin: []
   m_VertexData:
@@ -23724,6 +23751,7 @@ Mesh:
     firstByte: 0
     indexCount: 132
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 78
     localAABB:
@@ -23741,6 +23769,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600180019001a0018001a001b001c001d001e001c001e001f002000210022002000220023002400250026002400260027000e000f0028000f00290028002a002b002c002b002d002c002e002f0030002f0031003000320033003400330035003400280029003600290037003600380039003a0039003b003a003c003d003e003d003f003e00340035004000350041004000360037004200370043004200440045004600450047004600480049004a0049004b004a00400041004c0041004d004c00
   m_Skin: []
   m_VertexData:
