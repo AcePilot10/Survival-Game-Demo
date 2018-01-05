@@ -5,6 +5,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerInput : MonoBehaviour {
 
+    #region events
+
+    public delegate void PlaceAttempt();
+    public static event PlaceAttempt OnPlaceAttempt;
+
+    #endregion
+
     private void Update()
     {
         CheckInput();  
@@ -13,7 +20,7 @@ public class PlayerInput : MonoBehaviour {
     void CheckInput() {
         if (Input.GetMouseButtonDown(0))
         {
-           InitAttack();
+            InitAttack();
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -31,6 +38,10 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ExitGame();
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            BroadcastPlace();
         }
     }
 
@@ -110,5 +121,13 @@ public class PlayerInput : MonoBehaviour {
 
     void ExitGame() {
         Application.Quit();
+    }
+
+    void BroadcastPlace()
+    {
+        if (OnPlaceAttempt != null)
+        {
+            OnPlaceAttempt();
+        }
     }
 }

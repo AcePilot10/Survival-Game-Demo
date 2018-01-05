@@ -13,6 +13,11 @@ public class InventoryUI : MonoBehaviour {
     }
     #endregion
 
+    private void Start()
+    {
+        UpdateSlots();
+    }
+
     public GameObject slotHolder;
 
     private void ClearSlots() {

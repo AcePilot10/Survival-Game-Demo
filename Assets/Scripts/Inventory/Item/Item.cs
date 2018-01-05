@@ -16,7 +16,7 @@ public class Item : ScriptableObject {
         Init();
     }
 
-    public virtual void Init(){}
+    public virtual void Init() { }
 
     public virtual void Pickup() {
         Inventory.instance.AddItem(this);
@@ -36,7 +36,7 @@ public class Item : ScriptableObject {
     {
         Debug.Log("Used: " + itemName);
     }
-    
+
     public virtual void InstantiateDrop() {
         GameObject obj = Instantiate(interactable) as GameObject;
         Vector3 pos = PlayerManager.instance.GetPlayer().transform.position + (PlayerManager.instance.GetPlayer().transform.forward * 3);

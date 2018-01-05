@@ -131,4 +131,5 @@ public class Inventory : MonoBehaviour {
         InventoryUI.instance.UpdateSlots();
     }
     #endregion
+
 }

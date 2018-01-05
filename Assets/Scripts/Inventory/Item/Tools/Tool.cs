@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
-public class Tool : Item {
+namespace ToolItem
+{
+    public class Tool : Item
+    {
+        public virtual void Equip() { }
 
-    public virtual void Equip() { }
+        public virtual void Unequip() { }
 
-    public virtual void Unequip() { }
+        public virtual void InitModel() { }
 
-    public virtual void InitModel() { }
-
-    public virtual void UnequipModel() { }
+        public virtual void UnequipModel() { }
+    }
 }
