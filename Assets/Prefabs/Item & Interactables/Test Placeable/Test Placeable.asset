@@ -15,5 +15,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: cf0b09c8bba516b479cba7a065b2efbc, type: 3}
   itemName: Test Placeable
   interactable: {fileID: 0}
-  placeableObject: {fileID: 100000, guid: 6135c41da07646c4fa36dcd5a3efeaa0, type: 3}
+  placeableObject: {fileID: 1618584743371458, guid: 9861379ccdf668d4c8494701bf261b4f,
+    type: 2}
   spawnPos: {x: 0, y: 0, z: 1}
+  adjustmentSpeed: 0.3
+  maskedLayers:
+    serializedVersion: 2
+    m_Bits: 768

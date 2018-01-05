@@ -39,7 +39,7 @@ public class PlayerInput : MonoBehaviour {
         {
             ExitGame();
         }
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             BroadcastPlace();
         }

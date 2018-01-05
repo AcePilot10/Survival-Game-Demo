@@ -15,6 +15,13 @@ public class PlayerManager : MonoBehaviour {
     }
     #endregion
 
+    #region events
+
+    public delegate void PlayerUpdate();
+    public static event PlayerUpdate OnPlayerUpdate;
+
+    #endregion
+
     private GameObject player;
 
     private void Start()
@@ -25,6 +32,19 @@ public class PlayerManager : MonoBehaviour {
 
     public GameObject GetPlayer()
     {
-        return this.player;
+        return player;
+    }
+
+    void UpdatePlayer()
+    {
+        if (OnPlayerUpdate != null)
+        {
+            OnPlayerUpdate();
+        }
+    }
+
+    private void Update()
+    {
+        UpdatePlayer();
     }
 }
