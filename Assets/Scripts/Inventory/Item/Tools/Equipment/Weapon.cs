@@ -7,15 +7,25 @@ public class Weapon : Equipment {
     public GameObject modelPrefab;
     public float strength;
     public float knockStrength;
+    public Vector3 spawnPosition;
+    public Vector3 spawnRotation;
+    public Vector3 spawnScale;
 
     private GameObject currentModel;
 
     public override void InitModel()
     {
-        Transform primaryHolder = FindObjectOfType<PlayerEquipment>().primaryHolder.transform;
-        Transform primaryPosition = FindObjectOfType<PlayerEquipment>().primaryPosition.transform;
-        currentModel = Instantiate(modelPrefab, primaryPosition.position, primaryPosition.rotation, primaryHolder) as GameObject;
-        currentModel.transform.localScale = primaryPosition.localScale;
+        Transform rightHand = PlayerEquipment.instance.rightHand.transform;
+        currentModel = Instantiate(modelPrefab) as GameObject;
+
+        Vector3 localSpawnPos = rightHand.TransformPoint(spawnPosition);
+
+        currentModel.transform.parent = rightHand;
+
+        currentModel.transform.position = localSpawnPos;
+        currentModel.transform.rotation = Quaternion.Euler(spawnRotation);
+        currentModel.transform.localScale = spawnScale;
+
         PlayerManager.instance.GetPlayer().GetComponent<PlayerAnimator>().hasWeapon = true;
     }
 

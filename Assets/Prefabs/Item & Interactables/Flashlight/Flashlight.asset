@@ -17,3 +17,6 @@ MonoBehaviour:
   interactable: {fileID: 1440333145824346, guid: d4e8f7f6533382941a7490487fe33585,
     type: 2}
   model: {fileID: 1234323958970972, guid: e083c73edee0ccb4ea087e54adaf01f1, type: 2}
+  spawnPosition: {x: -0.0079, y: 0.0038, z: 0.0025}
+  spawnRotation: {x: -73.802, y: -84.443, z: 90.524}
+  spawnScale: {x: 0.008, y: 0.008, z: 0.008}

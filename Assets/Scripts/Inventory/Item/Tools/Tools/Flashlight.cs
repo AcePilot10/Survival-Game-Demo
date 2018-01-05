@@ -6,27 +6,18 @@ using UnityEngine;
 public class Flashlight : Equipment {
 
     public GameObject model;
+    public Vector3 spawnPosition;
+    public Vector3 spawnRotation;
+    public Vector3 spawnScale;
 
-    private Transform holder;
-    private Transform position;
     private GameObject currentModel;
-
-    private void Start()
-    {
-        holder = PlayerEquipment.instance.flashlightHolder.transform;
-        position = PlayerEquipment.instance.flashlightPosition.transform;
-    }
 
     public override void InitModel() {
         if (currentModel != null) Destroy(currentModel);
-        Transform holder = PlayerEquipment.instance.flashlightHolder.transform;
-        Transform position = PlayerEquipment.instance.flashlightPosition.transform;
-        currentModel = Instantiate(model) as GameObject;
-        currentModel.transform.parent = holder;
-        currentModel.transform.position = position.position;
-        currentModel.transform.rotation = position.transform.rotation;
-        currentModel.transform.localScale = position.transform.localScale;
-        currentModel.transform.localScale = position.localScale;
+        Transform leftHand = PlayerEquipment.instance.leftHand.transform;
+        Vector3 spawnPos = leftHand.TransformPoint(spawnPosition);
+        currentModel = Instantiate(model, spawnPos, Quaternion.Euler(spawnRotation), leftHand) as GameObject;
+        currentModel.transform.localScale = spawnScale;
     }
 
     public override void Use()

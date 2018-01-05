@@ -13,7 +13,6 @@ public class Placeable : Item {
     public LayerMask maskedLayers;
 
     private bool isPlacing = false;
-    private Vector3 offset;
     private GameObject currentObject;
 
     #endregion
@@ -90,33 +89,34 @@ public class Placeable : Item {
     void HandleAdjustment()
     {
         float verticalDir = 0f;
-        float horizontalDir = 0f;
-        if (Input.GetKey(KeyCode.Keypad8))
+        float rotation = 0f;
+        if (Input.GetKey(KeyCode.I))
         {
             //Up
             verticalDir = 1;
         }
 
-        if (Input.GetKey(KeyCode.Keypad2))
+        if (Input.GetKey(KeyCode.K))
         {
             //Down
             verticalDir = -1;
         }
 
-        if (Input.GetKey(KeyCode.Keypad4))
+        if (Input.GetKey(KeyCode.J))
         {
             //Left
-            horizontalDir = -1;
+            rotation = -1;
         }
 
-        if (Input.GetKey(KeyCode.Keypad6))
+        if (Input.GetKey(KeyCode.L))
         {
             //Right
-            horizontalDir = 1;
+            rotation = 1;
         }
 
-        Vector3 movement = new Vector3(horizontalDir, 0, verticalDir);
-        currentObject.transform.Translate(movement * adjustmentSpeed);
-        offset = currentObject.transform.position;
+        Vector3 yMovement = new Vector3(0, verticalDir, 0);
+        Vector3 rot = new Vector3(0, rotation, 0);
+        currentObject.transform.Translate(yMovement * adjustmentSpeed);
+        currentObject.transform.Rotate(rot);
     }
 }

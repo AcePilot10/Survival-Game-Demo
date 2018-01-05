@@ -8,4 +8,10 @@ public class Primary : Weapon {
         PlayerEquipment.instance.EquipPrimary(this);
         base.Use();
     }
+
+    public override void Unequip()
+    {
+        FindObjectOfType<PlayerAnimator>().hasWeapon = false;
+        base.Unequip();
+    }
 }

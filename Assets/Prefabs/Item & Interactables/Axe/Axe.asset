@@ -20,3 +20,6 @@ MonoBehaviour:
     type: 2}
   strength: 15
   knockStrength: 5
+  spawnPosition: {x: -0.00692, y: 0.00265, z: -0.00118}
+  spawnRotation: {x: -74.843, y: 0, z: 0}
+  spawnScale: {x: 0.071414, y: 0.071414, z: 0.071414}

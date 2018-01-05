@@ -17,9 +17,8 @@ public class PlayerEquipment : MonoBehaviour {
     public EquipmentUI ui;
 
     #region Primary
-    public Primary primary;
-    public GameObject primaryHolder;
-    public GameObject primaryPosition;
+    [HideInInspector] public Primary primary;
+    public GameObject rightHand;
    
     public bool HasPrimary() {
         return primary != null;
@@ -42,9 +41,8 @@ public class PlayerEquipment : MonoBehaviour {
     #endregion
 
     #region Tool
-    public Equipment tool;
-    public GameObject flashlightHolder;
-    public GameObject flashlightPosition;
+    [HideInInspector] public Equipment tool;
+    public GameObject leftHand;
 
     public bool HasTool() {
         return tool != null;
