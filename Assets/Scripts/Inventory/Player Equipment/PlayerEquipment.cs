@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ToolItem;
 
+[ExecuteInEditMode]
 public class PlayerEquipment : MonoBehaviour {
 
     #region singleton

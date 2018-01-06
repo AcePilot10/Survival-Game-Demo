@@ -260,5 +260,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        public Vector3 GetMoveDirection()
+        {
+            return m_MoveDir;
+        }
     }
 }
