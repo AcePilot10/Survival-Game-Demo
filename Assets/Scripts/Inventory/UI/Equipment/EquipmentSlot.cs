@@ -15,7 +15,10 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right) {
-            ToggleUI();
+            if (item != null)
+            {
+                ToggleUI();
+            }
         }
     }
 

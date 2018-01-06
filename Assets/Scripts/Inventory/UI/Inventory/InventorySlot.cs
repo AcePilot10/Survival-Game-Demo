@@ -35,7 +35,10 @@ public class InventorySlot : MonoBehaviour
     public virtual void Click() {
         if (item != null)
         {
-            item.Use();
+            if (Input.GetMouseButtonDown(0))
+            {
+                item.Use();
+            }
         }
     }
 

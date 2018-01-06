@@ -16,11 +16,13 @@ public class EquipmentUI : MonoBehaviour {
         {
             primarySlot.sprite = primary.icon;
             primaryTitle.text = primary.itemName;
+            primarySlot.GetComponent<EquipmentSlot>().item = primary;
         }
         else
         {
             primarySlot.sprite = null;
             primaryTitle.text = "";
+            primarySlot.GetComponent<EquipmentSlot>().item = null;
         }
     }
 
