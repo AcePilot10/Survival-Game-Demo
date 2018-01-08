@@ -21168,6 +21168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1712430767}
   controller: {fileID: 1185664430}
+  fps: {fileID: 0}
 --- !u!1001 &1731606993
 Prefab:
   m_ObjectHideFlags: 0
@@ -24827,7 +24828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1984240431
 Transform:
   m_ObjectHideFlags: 0
