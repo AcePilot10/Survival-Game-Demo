@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -6,10 +5,17 @@ using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+
+        #region Events
+
+        public delegate void Jump();
+        public static event Jump OnJump;
+
+        #endregion
 
         #region variables
         [SerializeField] public bool m_IsWalking;
@@ -26,12 +32,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private CurveControlledBob m_HeadBob = new CurveControlledBob();
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
         [SerializeField] private float m_StepInterval;
-        [SerializeField] private AudioClip[] m_FootstepSounds;    
-        [SerializeField] private AudioClip m_JumpSound;           
+        [SerializeField] private AudioClip[] m_FootstepSounds;
+        [SerializeField] private AudioClip m_JumpSound;
         [SerializeField] private AudioClip m_LandSound;
 
         public bool canMove = true;
         public float speedMultiplier = 1f;
+        public float speed;
+        public float direction;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -56,10 +64,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
-            m_NextStep = m_StepCycle/2f;
+            m_NextStep = m_StepCycle / 2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-			m_MouseLook.Init(transform , m_Camera.transform);
+            m_MouseLook.Init(transform, m_Camera.transform);
         }
 
         private void Update()
@@ -69,11 +77,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 FindObjectOfType<PlayerAnimator>().SetWalking();
             }
-            else {
+            else
+            {
                 FindObjectOfType<PlayerAnimator>().SetRunning();
             }
             RotateView();
-            if (!m_Jump && canMove)
+            if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
@@ -109,7 +118,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.x = desiredMove.x * (speed * speedMultiplier);
                 m_MoveDir.z = desiredMove.z * (speed * speedMultiplier);
             }
-            else {
+            else
+            {
                 m_MoveDir = Vector3.zero;
             }
 
@@ -121,6 +131,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
+                    OnPlayerJump();
                     m_Jump = false;
                     m_Jumping = true;
                 }
@@ -154,7 +165,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
-                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
+                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed * (m_IsWalking ? 1f : m_RunstepLenghten))) *
                              Time.fixedDeltaTime;
             }
 
@@ -193,7 +204,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
+                                      (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
@@ -209,6 +220,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            this.speed = vertical;
+            this.direction = horizontal;
 
             bool waswalking = m_IsWalking;
 
@@ -258,12 +271,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+            body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
         }
 
-        public Vector3 GetMoveDirection()
+        void OnPlayerJump()
         {
-            return m_MoveDir;
+            if (OnJump != null)
+            {
+                OnJump();
+            }
         }
     }
 }

@@ -17,8 +17,8 @@ MonoBehaviour:
   interactable: {fileID: 0}
   placeableObject: {fileID: 1961090346358404, guid: 898ff574039ead44794c10c45b450e69,
     type: 2}
-  spawnPos: {x: 0, y: 0, z: 2.5}
+  spawnPos: {x: 0, y: -1.76, z: 2.5}
   adjustmentSpeed: 0.3
   maskedLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 4294965503

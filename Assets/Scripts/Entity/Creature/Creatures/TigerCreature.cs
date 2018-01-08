@@ -22,10 +22,7 @@ public class TigerCreature : Creature
     {
         anim.SetTrigger("Hurt");
         Debug.Log("Tiger Died!");
-    }
-
-    public void AnimatorDie() {
         DropItems();
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

@@ -59,6 +59,7 @@ public class Placeable : Item {
             isPlacing = false;
             Inventory.instance.RemoveItem(this);
             Debug.Log("Placed item!");
+            PlayerManager.OnPlayerUpdate -= Update;
         }
     }
 
