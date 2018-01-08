@@ -91,7 +91,10 @@ public class BasicAI : MonoBehaviour {
         {
             if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
-                Attack();
+                if (target.GetComponent<PlayerHealth>().health > 0)
+                {
+                    //Attack
+                }
             }
             else
             {

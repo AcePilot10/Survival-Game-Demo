@@ -13,9 +13,13 @@ public class PlayerHealth : MonoBehaviour {
     public float starveDamageAmount;
 
     public float respawnDelay;
+    public Camera deadCamera;
+    public GameObject playerRagdoll;
 
     private bool isFatigued = false;
-    private bool isDead = false;
+    [HideInInspector]public bool isDead = false;
+
+
 
     #region Settings
     public float staminaZeroDelay;
@@ -129,6 +133,11 @@ public class PlayerHealth : MonoBehaviour {
         isDead = true;
         Debug.Log("Player Died!");
         FindObjectOfType<FirstPersonController>().canMove = false;
+
+        Instantiate(playerRagdoll, transform.position, Quaternion.identity, transform);
+        FindObjectOfType<ModelAnimator>().gameObject.SetActive(false);
+        deadCamera.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(respawnDelay);
         SceneManager.LoadScene(0);
         //DropInventory();

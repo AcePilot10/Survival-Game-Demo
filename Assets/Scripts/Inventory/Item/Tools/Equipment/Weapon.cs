@@ -19,12 +19,14 @@ public class Weapon : Equipment {
         currentModel = Instantiate(modelPrefab) as GameObject;
 
         Vector3 localSpawnPos = rightHand.TransformPoint(spawnPosition);
+        Vector3 localRotation = rightHand.TransformPoint(spawnRotation);
 
         currentModel.transform.parent = rightHand;
 
         currentModel.transform.position = localSpawnPos;
-        currentModel.transform.rotation = Quaternion.Euler(spawnRotation);
-        currentModel.transform.localScale = spawnScale;
+
+        //currentModel.transform.rotation = Quaternion.Euler(spawnRotation);
+        currentModel.transform.localRotation = Quaternion.Euler(spawnRotation);
 
         PlayerManager.instance.GetPlayer().GetComponent<PlayerAnimator>().hasWeapon = true;
     }

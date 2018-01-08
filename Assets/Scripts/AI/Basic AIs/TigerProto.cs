@@ -23,7 +23,15 @@ public class TigerProto : BasicAI
         {
             if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
-                anim.SetTrigger("Attack");
+                if (!FindObjectOfType<PlayerHealth>().isDead)
+                {
+                    anim.SetTrigger("Attack");
+                    canAttack = false;
+                }
+                else
+                {
+                    state = BasicAIState.PATROL;
+                }
             }
             else
             {
@@ -68,5 +76,10 @@ public class TigerProto : BasicAI
                 Debug.Log("AI DID DAMAGE!");
             }
         }
+    }
+
+    public void AnimatorFinishAttack()
+    {
+        canAttack = true;
     }
 }
