@@ -42,18 +42,32 @@ public class TigerProto : BasicAI
 
     public override void Look()
     {
-        //For now we will do a raycast for just forward
-        RaycastHit hit;
-        Ray ray = new Ray(eyePos.position, eyePos.forward);
-        Physics.Raycast(ray, out hit, eyesightRange);
-        if (hit.collider != null)
+        if (state != BasicAIState.ATTACK)
         {
-            GameObject obj = hit.collider.gameObject;
-            if (obj.tag == "Player")
+            if (CanSeeTarget())
             {
                 state = BasicAIState.ATTACK;
             }
         }
+    }
+
+    public bool CanSeeTarget()
+    {
+        RaycastHit hit;
+        Vector3 rayDirection = target.position - eyePos.position;
+        Ray ray = new Ray(eyePos.position, rayDirection);
+        if ((Vector3.Angle(rayDirection, eyePos.forward)) <= fov)
+        {
+            Debug.DrawRay(eyePos.position, rayDirection * eyesightRange);
+            if (Physics.Raycast(ray, out hit, eyesightRange))
+            {
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public override void UpdateState()
